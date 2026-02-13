@@ -24,8 +24,8 @@
         }
 
         header p {
-            font-size: 18px;
-            opacity: 0.9;
+            font-size: 20px;
+            opacity: 0.95;
         }
 
         /* BIG MAIN BUTTON SECTION */
@@ -35,18 +35,36 @@
 
         .big-btn {
             display: inline-block;
-            padding: 20px 50px;
+            padding: 25px 60px;
             background: white;
             color: #667eea;
-            font-size: 22px;
+            font-size: 26px;
             font-weight: bold;
-            border-radius: 10px;
+            border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             transition: 0.3s;
         }
 
         .big-btn:hover {
+            transform: scale(1.07);
+        }
+
+        .compress-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 15px 40px;
+            background: #5a67d8;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .compress-btn:hover {
+            background: #434190;
             transform: scale(1.05);
         }
 
@@ -112,25 +130,25 @@
 
 <header>
     <h1>EasyFile Tools</h1>
-    <p>Free Online Image, Signature & PDF Tools</p>
+    <p>Compress Images, Resize Signatures & Compress PDFs Easily Online</p>
 </header>
 
-<!-- 🔥 BIG IMAGE COMPRESSOR BUTTON -->
+<!-- 🔥 MAIN IMAGE SECTION -->
 <div class="main-button">
     <a href="photo.html" class="big-btn">CLICK TO SELECT IMAGE</a>
+    <br>
+    <a href="photo.html" class="compress-btn">COMPRESS IMAGE</a>
 </div>
 
-<!-- OTHER TOOLS BELOW -->
+<!-- OTHER TOOLS -->
 <div class="tools">
 
-    <!-- Signature Tool -->
     <div class="tool-card">
         <h2>Signature Resizer</h2>
         <p>Resize signature image to required KB size.</p>
         <a href="signature.html" class="btn">Resize Signature</a>
     </div>
 
-    <!-- PDF Compressor -->
     <div class="tool-card">
         <h2>PDF Compressor</h2>
         <p>Compress PDF files quickly and easily.</p>
