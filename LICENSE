@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EasyFile Tools - Free Online PDF & Image Tools</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">EasyFile Tools</div>
+  <nav>
+    <a href="photo.html">Photo</a>
+    <a href="signature.html">Signature</a>
+    <a href="pdf.html">PDF</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="home-hero">
+  <h1>All Your File Tools in One Place</h1>
+  <p>Compress PDF, Resize Photos & Signatures for Govt Exams — Fast & Free</p>
+  <a href="pdf.html" class="main-btn">Compress PDF Now</a>
+</section>
+
+<!-- TOOLS SECTION -->
+<section class="home-tools">
+
+  <div class="tool-card">
+    <h3>📄 PDF Compressor</h3>
+    <p>Reduce PDF file size easily without losing quality.</p>
+    <a href="pdf.html" class="card-btn">Open Tool</a>
+  </div>
+
+  <div class="tool-card">
+    <h3>🖼 Photo Resizer</h3>
+    <p>Resize passport photos for Govt Exams instantly.</p>
+    <a href="photo.html" class="card-btn">Open Tool</a>
+  </div>
+
+  <div class="tool-card">
+    <h3>✍ Signature Resizer</h3>
+    <p>Resize signature images to required KB size.</p>
+    <a href="signature.html" class="card-btn">Open Tool</a>
+  </div>
+
+</section>
+
+<!-- WHY SECTION -->
+<section class="why">
+  <h2>Why Choose EasyFile Tools?</h2>
+  <div class="why-grid">
+    <div>⚡ Fast Processing</div>
+    <div>🔒 100% Secure</div>
+    <div>📱 Mobile Friendly</div>
+    <div>💯 Free to Use</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 EasyFile Tools | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
