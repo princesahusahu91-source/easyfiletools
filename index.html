@@ -7,42 +7,52 @@
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:'Segoe UI', sans-serif;
-background:#f1f5ff;
-color:#333;
+}
+
+body{
+overflow-x:hidden;
+background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#6f42c1);
+background-size:400% 400%;
+animation:gradientMove 10s ease infinite;
+color:white;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 /* HEADER */
 
 header{
-background:white;
-padding:18px;
 text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-header h1{
-margin:0;
-font-size:24px;
-background:linear-gradient(90deg,#0a58ca,#6f42c1);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+padding:25px;
+font-size:26px;
+font-weight:600;
+letter-spacing:1px;
 }
 
 /* HERO */
 
 .hero{
-background:linear-gradient(135deg,#0a58ca,#6f42c1);
-padding:90px 20px;
+min-height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-color:white;
+padding:20px;
 }
 
 .hero h2{
-font-size:36px;
-margin-bottom:10px;
+font-size:38px;
+margin-bottom:15px;
 }
 
 .hero p{
@@ -50,56 +60,68 @@ opacity:0.9;
 margin-bottom:40px;
 }
 
-/* UPLOAD CARD */
+/* GLASS CARD */
 
 .upload-wrapper{
+width:100%;
 max-width:600px;
-margin:0 auto;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+padding:50px 30px;
+box-shadow:0 8px 40px rgba(0,0,0,0.3);
+transition:0.4s;
 }
 
+.upload-wrapper:hover{
+transform:translateY(-6px);
+}
+
+/* UPLOAD AREA */
+
 .upload-box{
-background:white;
-border-radius:20px;
-padding:60px 20px;
+border:2px dashed rgba(255,255,255,0.6);
+border-radius:15px;
+padding:50px 20px;
 cursor:pointer;
-box-shadow:0 15px 35px rgba(0,0,0,0.15);
 transition:0.3s;
 }
 
 .upload-box:hover{
-transform:translateY(-5px);
-box-shadow:0 20px 45px rgba(0,0,0,0.2);
+background:rgba(255,255,255,0.1);
 }
 
 .upload-icon{
-font-size:50px;
-color:#6f42c1;
+font-size:55px;
 margin-bottom:15px;
 }
 
 .upload-box h3{
-margin:0;
 font-size:22px;
-color:#333;
 }
 
 .upload-box p{
-margin-top:8px;
 font-size:14px;
-color:#777;
+opacity:0.8;
+margin-top:5px;
 }
+
+/* CONTROLS */
 
 .resize-controls{
 margin-top:30px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
 }
 
 .resize-controls input{
 padding:12px;
-width:200px;
+width:180px;
 border-radius:10px;
 border:none;
 outline:none;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
 text-align:center;
 font-size:14px;
 }
@@ -111,13 +133,12 @@ border-radius:10px;
 background:linear-gradient(90deg,#ff416c,#ff4b2b);
 color:white;
 cursor:pointer;
-margin-left:10px;
 font-size:14px;
 transition:0.3s;
 }
 
 .resize-controls button:hover{
-opacity:0.85;
+transform:scale(1.05);
 }
 
 .download-btn{
@@ -128,26 +149,57 @@ border:none;
 border-radius:10px;
 color:#111;
 cursor:pointer;
-font-size:14px;
+font-weight:600;
+transition:0.3s;
 }
 
-/* INFO TEXT */
+.download-btn:hover{
+transform:scale(1.05);
+}
+
+/* INFO */
 
 .info{
 margin-top:15px;
 font-size:14px;
-color:white;
+}
+
+/* FLOATING CIRCLES */
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.1);
+animation:float 8s infinite ease-in-out;
+}
+
+.circle1{
+width:120px;
+height:120px;
+top:10%;
+left:5%;
+}
+
+.circle2{
+width:200px;
+height:200px;
+bottom:10%;
+right:10%;
+animation-delay:2s;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
 }
 
 /* FOOTER */
 
 footer{
-background:#111;
-color:white;
 text-align:center;
 padding:25px;
-margin-top:60px;
 font-size:14px;
+opacity:0.8;
 }
 
 </style>
@@ -155,11 +207,15 @@ font-size:14px;
 
 <body>
 
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
 <header>
-<h1>EasyFile Tools</h1>
+EasyFile Tools
 </header>
 
 <div class="hero">
+
 <h2>Resize Photo for Govt Exams</h2>
 <p>Passport Size • Within Selected KB Limit • Instant Download</p>
 
