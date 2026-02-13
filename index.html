@@ -1,315 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EasyFile Tools - Govt Exam Photo Resizer</title>
+    <meta charset="UTF-8">
+    <title>EasyFileTools - Free Online Image & PDF Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tools to compress images, resize signatures and compress PDFs for government exams and official use.">
 
-<style>
+    <link rel="stylesheet" href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI', sans-serif;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
 
-body{
-overflow-x:hidden;
-background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#6f42c1);
-background-size:400% 400%;
-animation:gradientMove 10s ease infinite;
-color:white;
-}
+        header {
+            padding: 40px 20px;
+        }
 
-@keyframes gradientMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
 
-/* HEADER */
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
 
-header{
-text-align:center;
-padding:25px;
-font-size:26px;
-font-weight:600;
-letter-spacing:1px;
-}
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 20px;
+        }
 
-/* HERO */
+        .tool-card {
+            background: white;
+            color: #333;
+            width: 280px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+        }
 
-.hero{
-min-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
+        .tool-card:hover {
+            transform: translateY(-8px);
+        }
 
-.hero h2{
-font-size:38px;
-margin-bottom:15px;
-}
+        .tool-card h2 {
+            margin-top: 0;
+        }
 
-.hero p{
-opacity:0.9;
-margin-bottom:40px;
-}
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
 
-/* GLASS CARD */
+        .btn:hover {
+            background: #5a67d8;
+        }
 
-.upload-wrapper{
-width:100%;
-max-width:600px;
-backdrop-filter:blur(20px);
-background:rgba(255,255,255,0.08);
-border-radius:20px;
-padding:50px 30px;
-box-shadow:0 8px 40px rgba(0,0,0,0.3);
-transition:0.4s;
-}
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(0,0,0,0.2);
+        }
 
-.upload-wrapper:hover{
-transform:translateY(-6px);
-}
-
-/* UPLOAD AREA */
-
-.upload-box{
-border:2px dashed rgba(255,255,255,0.6);
-border-radius:15px;
-padding:50px 20px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.upload-box:hover{
-background:rgba(255,255,255,0.1);
-}
-
-.upload-icon{
-font-size:55px;
-margin-bottom:15px;
-}
-
-.upload-box h3{
-font-size:22px;
-}
-
-.upload-box p{
-font-size:14px;
-opacity:0.8;
-margin-top:5px;
-}
-
-/* CONTROLS */
-
-.resize-controls{
-margin-top:30px;
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:15px;
-}
-
-.resize-controls input{
-padding:12px;
-width:180px;
-border-radius:10px;
-border:none;
-outline:none;
-text-align:center;
-font-size:14px;
-}
-
-.resize-controls button{
-padding:12px 30px;
-border:none;
-border-radius:10px;
-background:linear-gradient(90deg,#ff416c,#ff4b2b);
-color:white;
-cursor:pointer;
-font-size:14px;
-transition:0.3s;
-}
-
-.resize-controls button:hover{
-transform:scale(1.05);
-}
-
-.download-btn{
-margin-top:25px;
-padding:12px 35px;
-background:linear-gradient(90deg,#00c9ff,#92fe9d);
-border:none;
-border-radius:10px;
-color:#111;
-cursor:pointer;
-font-weight:600;
-transition:0.3s;
-}
-
-.download-btn:hover{
-transform:scale(1.05);
-}
-
-/* INFO */
-
-.info{
-margin-top:15px;
-font-size:14px;
-}
-
-/* FLOATING CIRCLES */
-
-.circle{
-position:absolute;
-border-radius:50%;
-background:rgba(255,255,255,0.1);
-animation:float 8s infinite ease-in-out;
-}
-
-.circle1{
-width:120px;
-height:120px;
-top:10%;
-left:5%;
-}
-
-.circle2{
-width:200px;
-height:200px;
-bottom:10%;
-right:10%;
-animation-delay:2s;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0px);}
-50%{transform:translateY(-20px);}
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:25px;
-font-size:14px;
-opacity:0.8;
-}
-
-</style>
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="circle circle1"></div>
-<div class="circle circle2"></div>
-
 <header>
-EasyFile Tools
+    <h1>EasyFile Tools</h1>
+    <p>Free Online Tools for Image, Signature & PDF Compression</p>
 </header>
 
-<div class="hero">
+<div class="tools">
 
-<h2>Resize Photo for Govt Exams</h2>
-<p>Passport Size • Within Selected KB Limit • Instant Download</p>
+    <!-- ✅ IMAGE COMPRESSOR (FIRST NOW) -->
+    <div class="tool-card">
+        <h2>Image Compressor</h2>
+        <p>Compress images to required KB size for exams and official forms.</p>
+        <a href="photo.html" class="btn">Compress Image</a>
+    </div>
 
-<div class="upload-wrapper">
+    <!-- Signature Resizer -->
+    <div class="tool-card">
+        <h2>Signature Resizer</h2>
+        <p>Resize signature images between required KB limits easily.</p>
+        <a href="signature.html" class="btn">Resize Signature</a>
+    </div>
 
-<div class="upload-box" onclick="document.getElementById('imageInput').click()">
-<div class="upload-icon">⬆</div>
-<h3>Click to Upload Image</h3>
-<p>JPG, PNG Supported</p>
-</div>
+    <!-- PDF Compressor -->
+    <div class="tool-card">
+        <h2>PDF Compressor</h2>
+        <p>Compress PDF files quickly and easily online.</p>
+        <a href="pdf.html" class="btn">Compress PDF</a>
+    </div>
 
-<input type="file" id="imageInput" accept="image/*" hidden>
-
-<div class="resize-controls">
-<input type="number" id="targetSize" placeholder="Enter Max KB (20-500)" min="20" max="500">
-<button onclick="resizeImage()">Resize</button>
-</div>
-
-<div class="info" id="originalSize"></div>
-<div class="info" id="finalSize"></div>
-
-<a id="downloadLink" style="display:none;" download="resized-image.jpg">
-<button class="download-btn">Download Image</button>
-</a>
-
-</div>
 </div>
 
 <footer>
-© 2026 EasyFile Tools
+    © 2026 EasyFile Tools |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="about.html">About</a>
 </footer>
-
-<script>
-function resizeImage() {
-
-const fileInput = document.getElementById('imageInput');
-const targetSize = document.getElementById('targetSize').value;
-const downloadLink = document.getElementById('downloadLink');
-const originalSizeText = document.getElementById('originalSize');
-const finalSizeText = document.getElementById('finalSize');
-
-if (!fileInput.files[0]) {
-alert("Please upload an image.");
-return;
-}
-
-if (targetSize < 20 || targetSize > 500) {
-alert("Enter size between 20KB and 500KB.");
-return;
-}
-
-const file = fileInput.files[0];
-const originalSizeKB = (file.size / 1024).toFixed(2);
-originalSizeText.innerHTML = "Original Size: " + originalSizeKB + " KB";
-
-const reader = new FileReader();
-reader.onload = function(event) {
-
-const img = new Image();
-img.onload = function() {
-
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
-
-canvas.width = 413;
-canvas.height = 531;
-
-ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-let quality = 0.9;
-let resizedData;
-
-do {
-resizedData = canvas.toDataURL('image/jpeg', quality);
-quality -= 0.05;
-} while ((resizedData.length / 1024) > targetSize && quality > 0.1);
-
-const finalSizeKB = (resizedData.length / 1024).toFixed(2);
-
-finalSizeText.innerHTML = "Final Size: " + finalSizeKB +
-" KB (Within selected limit " + targetSize + " KB)";
-
-downloadLink.href = resizedData;
-downloadLink.style.display = "inline";
-
-};
-
-img.src = event.target.result;
-};
-
-reader.readAsDataURL(file);
-
-}
-</script>
 
 </body>
 </html>
