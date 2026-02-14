@@ -1,96 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Signature Resizer - EasyFile Tools</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<div class="tool-container">
+  <h2>Signature Resizer</h2>
 
-<header>
-<div class="logo">EasyFile Tools</div>
-<nav><a href="index.html">Home</a></nav>
-</header>
+  <div class="drop-area" id="dropSign">Click or Drag & Drop Signature</div>
+  <input type="file" id="signInput" accept="image/*" hidden>
 
-<section class="hero">
-<h1>Signature Resizer</h1>
-<p>Resize Signature (10KB - 100KB)</p>
-</section>
+  <img id="signPreview">
+  <p class="status" id="signStatus"></p>
 
-<section class="tools">
-<div class="upload-box">
+  <button onclick="compressImage(20)">20 KB</button>
+  <button onclick="compressImage(50)">50 KB</button>
 
-<input type="file" id="signInput" accept="image/*" hidden>
-<label for="signInput" class="upload-label">✍ Select Signature</label>
-
-<p id="signName" class="file-name"></p>
-
-<input type="number" id="signSize" class="size-input"
-placeholder="Enter Max KB (10 - 100)" min="10" max="100">
-
-<button class="compress-btn" onclick="resizeSign()">Compress Signature</button>
-
-<p id="signInfo" class="file-name"></p>
-
-<a id="signDownload" style="display:none;" download="signature.jpg">
-<button class="btn">Download Signature</button>
-</a>
-
+  <a class="download-btn" id="signDownload">Download</a>
 </div>
-</section>
-
-<footer>
-<p>© 2026 EasyFile Tools</p>
-</footer>
 
 <script>
-document.getElementById("signInput").addEventListener("change", function(){
-const file=this.files[0];
-if(file){
-document.getElementById("signName").innerText=
-"Selected: "+file.name+" ("+(file.size/1024).toFixed(2)+" KB)";
-}
-});
-
-function resizeSign(){
-const file=document.getElementById("signInput").files[0];
-const target=document.getElementById("signSize").value;
-const info=document.getElementById("signInfo");
-const download=document.getElementById("signDownload");
-
-if(!file || target<10 || target>100){
-alert("Upload image & enter size 10-100KB");
-return;
-}
-
-info.innerHTML="Original Size: "+(file.size/1024).toFixed(2)+" KB";
-
-const reader=new FileReader();
-reader.onload=function(e){
-const img=new Image();
-img.onload=function(){
-const canvas=document.createElement("canvas");
-const ctx=canvas.getContext("2d");
-canvas.width=400;
-canvas.height=200;
-ctx.drawImage(img,0,0,canvas.width,canvas.height);
-
-let quality=0.9;
-let result;
-
-do{
-result=canvas.toDataURL("image/jpeg",quality);
-quality-=0.05;
-}while((result.length/1024)>target && quality>0.1);
-
-info.innerHTML+="<br>Final Size: "+(result.length/1024).toFixed(2)+" KB";
-download.href=result;
-download.style.display="inline";
-};
-img.src=e.target.result;
-};
-reader.readAsDataURL(file);
-}
+  initTool("dropSign", "signInput", "signPreview", "signStatus", "signDownload");
 </script>
-
-</body>
-</html>
