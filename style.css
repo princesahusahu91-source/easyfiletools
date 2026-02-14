@@ -192,3 +192,72 @@ max-width:800px;
 margin:auto;
 font-weight:600;
   }
+.tool-container {
+  max-width: 420px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+  font-family: Arial, sans-serif;
+}
+
+.drop-area {
+  border: 2px dashed #888;
+  padding: 25px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  color: #444;
+}
+
+.drop-area.dragover {
+  border-color: #2563eb;
+  background: #eef4ff;
+}
+
+.tool-container input,
+.tool-container button,
+.tool-container select,
+.tool-container a {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.tool-container button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.tool-container button:active {
+  transform: scale(0.98);
+}
+
+.tool-container img {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.status {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.download-btn {
+  display: block;
+  text-align: center;
+  background: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 10px;
+  }
+  
