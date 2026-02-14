@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Signature Resizer</title>
 <link rel="stylesheet" href="tool.css">
 </head>
@@ -10,7 +9,9 @@
 <div class="header"><h2>Signature Resizer (Exact KB)</h2></div>
 <div class="container">
   <div class="card">
-    <div id="drop" class="tool">Drop signature here or <input id="file" type="file" accept="image/*"></div>
+    <label id="drop" class="tool" for="file"><b>Tap or Drop Signature Here</b>
+      <input id="file" type="file" accept="image/*" hidden>
+    </label>
     <label>Target Size (KB)</label>
     <input id="kb" type="number" value="20" min="5" max="100">
     <button id="go" class="btn">Compress</button>
@@ -20,19 +21,16 @@
 
 <script src="tool.js"></script>
 <script>
-const drop = document.getElementById("drop");
-const file = document.getElementById("file");
-bindDrop(drop, file);
+const drop=document.getElementById("drop"), file=document.getElementById("file");
+bindDrop(drop,file); drop.onclick=()=>file.click();
 
-document.getElementById("go").onclick = async () => {
-  if (!file.files[0]) return alert("Select image first");
-  const target = +document.getElementById("kb").value;
-  const blob = await compressToTarget(file.files[0], target, 400, 200);
+go.onclick=async()=>{
+  if(!file.files[0]) return alert("Select image first");
+  const blob = await compressToTarget(file.files[0], +kb.value, 400, 200);
   const url = URL.createObjectURL(blob);
-  out.innerHTML = `<p>Final size: ${(blob.size/1024).toFixed(1)} KB</p>
-                   <a class="btn" href="${url}" download="signature.jpg">Download</a>
-                   <img src="${url}">`;
-};
+  out.innerHTML = `<p>Final: ${(blob.size/1024).toFixed(1)} KB</p>
+  <a class="btn" href="${url}" download="signature.jpg">Download</a><img src="${url}">`;
+}
 </script>
 </body>
 </html>
