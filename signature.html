@@ -6,30 +6,49 @@
 <link rel="stylesheet" href="tool.css">
 </head>
 <body>
-<div class="header"><h2>Signature Resizer (Exact KB)</h2></div>
-<div class="container">
-  <div class="card">
-    <label id="drop" class="tool" for="file"><b>Tap or Drop Signature Here</b>
-      <input id="file" type="file" accept="image/*" hidden>
-    </label>
-    <label>Target Size (KB)</label>
-    <input id="kb" type="number" value="20" min="5" max="100">
-    <button id="go" class="btn">Compress</button>
-    <div class="preview" id="out"></div>
+  <div class="header">
+    <h2>Signature Resizer</h2>
+    <p>Compress to exact KB • Clean background • Mobile friendly</p>
   </div>
-</div>
+
+  <div class="container">
+    <div class="card">
+      <label class="uploader" id="pick">
+        <div class="icon">✍️</div>
+        <div class="title">Select signature image</div>
+        <div class="hint">White background recommended</div>
+        <input id="file" type="file" accept="image/*">
+      </label>
+
+      <div class="actions">
+        <div class="row">
+          <label>Target size (KB)</label>
+          <input id="kb" type="number" value="20" min="5" max="100">
+        </div>
+        <button id="go" class="btn">Compress Signature</button>
+      </div>
+
+      <div class="preview" id="out"></div>
+    </div>
+  </div>
+
+  <div class="footer">© 2026 EasyFile Tools</div>
 
 <script src="tool.js"></script>
 <script>
-const drop=document.getElementById("drop"), file=document.getElementById("file");
-bindDrop(drop,file); drop.onclick=()=>file.click();
+const pick=document.getElementById("pick");
+const file=document.getElementById("file");
+pick.onclick=()=>file.click();
 
 go.onclick=async()=>{
-  if(!file.files[0]) return alert("Select image first");
+  if(!file.files[0]) return alert("Select an image first");
   const blob = await compressToTarget(file.files[0], +kb.value, 400, 200);
   const url = URL.createObjectURL(blob);
-  out.innerHTML = `<p>Final: ${(blob.size/1024).toFixed(1)} KB</p>
-  <a class="btn" href="${url}" download="signature.jpg">Download</a><img src="${url}">`;
+  out.innerHTML = `
+    <div class="kb">Final: ${(blob.size/1024).toFixed(1)} KB</div>
+    <a class="btn secondary" href="${url}" download="signature.jpg">Download</a>
+    <img src="${url}">
+  `;
 }
 </script>
 </body>
