@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Govt Photo Resizer</title>
 <link rel="stylesheet" href="tool.css">
 </head>
@@ -10,30 +9,29 @@
 <div class="header"><h2>Government Photo Resizer (Exact KB)</h2></div>
 <div class="container">
   <div class="card">
-    <div id="drop" class="tool">Drop photo here or <input id="file" type="file" accept="image/*"></div>
+    <label id="drop" class="tool" for="file"><b>Tap or Drop Photo Here</b>
+      <input id="file" type="file" accept="image/*" hidden>
+    </label>
     <label>Target Size (KB)</label>
     <input id="kb" type="number" value="50" min="10" max="300">
     <button id="go" class="btn">Compress</button>
     <div class="preview" id="out"></div>
   </div>
 </div>
-<div class="footer">Works offline in your browser</div>
+<div class="footer">Runs offline in your browser</div>
 
 <script src="tool.js"></script>
 <script>
-const drop = document.getElementById("drop");
-const file = document.getElementById("file");
-bindDrop(drop, file);
+const drop=document.getElementById("drop"), file=document.getElementById("file");
+bindDrop(drop,file); drop.onclick=()=>file.click();
 
-document.getElementById("go").onclick = async () => {
-  if (!file.files[0]) return alert("Select image first");
-  const target = +document.getElementById("kb").value;
-  const blob = await compressToTarget(file.files[0], target, 600, 600);
+go.onclick=async()=>{
+  if(!file.files[0]) return alert("Select image first");
+  const blob = await compressToTarget(file.files[0], +kb.value, 600, 600);
   const url = URL.createObjectURL(blob);
-  out.innerHTML = `<p>Final size: ${(blob.size/1024).toFixed(1)} KB</p>
-                   <a class="btn" href="${url}" download="photo.jpg">Download</a>
-                   <img src="${url}">`;
-};
+  out.innerHTML = `<p>Final: ${(blob.size/1024).toFixed(1)} KB</p>
+  <a class="btn" href="${url}" download="photo.jpg">Download</a><img src="${url}">`;
+}
 </script>
 </body>
 </html>
