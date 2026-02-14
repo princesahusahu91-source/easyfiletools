@@ -2,38 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>EasyFileTools – Image Compressor</title>
+  <title>EasyFileTools – Passport Photo & Signature Compressor (20–50 KB)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Compress passport photo, signature & images online for government exam forms. Free & fast.">
+  <meta name="description" content="Free online tool to compress passport size photo 20–50 KB, signature resize, and batch image compression for government exam forms. No upload, 100% private.">
+  <meta name="keywords" content="passport photo 20 50 kb, signature compressor, image compressor for govt exam, resize photo online, compress image online free">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google AdSense (add your client id later) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-XXXXXXXXXXXX",
+      enable_page_level_ads: true
+    });
+  </script>
+  -->
 </head>
 <body>
 
+<header>
   <h1>EasyFileTools</h1>
-  <p class="tagline">Fast Image Compressor for Govt Exam Forms</p>
+  <p class="tagline">Passport Photo (20–50 KB) • Signature • Batch Image Compressor</p>
+</header>
 
+<nav class="tabs">
+  <button class="tab active" data-mode="passport">Passport Photo (20–50 KB)</button>
+  <button class="tab" data-mode="signature">Signature Compressor</button>
+  <button class="tab" data-mode="batch">Multiple Images</button>
+</nav>
+
+<main>
   <div class="upload-box" id="uploadBox">
     <div class="upload-inner">
       <div class="icon">📷</div>
-      <p class="main-text">Select Image to Compress</p>
+      <p class="main-text" id="mainText">Select photo for passport size</p>
       <p class="sub-text">or Drag & Drop here</p>
-      <button id="selectBtn">Select Image</button>
-      <input type="file" id="fileInput" accept="image/*" hidden>
+      <button id="selectBtn">Select Image(s)</button>
+      <input type="file" id="fileInput" accept="image/*" multiple hidden>
     </div>
   </div>
 
   <div class="controls">
     <label>Quality: <span id="qVal">70</span>%</label>
     <input type="range" id="quality" min="20" max="90" value="70">
+    <p class="hint" id="modeHint">Target size: 20–50 KB (auto-adjusted)</p>
   </div>
 
-  <div id="preview"></div>
+  <section id="preview"></section>
+</main>
 
-  <footer>
-    <p>© 2026 EasyFileTools • Made for Govt Exam Aspirants</p>
-  </footer>
+<footer>
+  <p>© 2026 EasyFileTools • Free tools for Govt Exam Forms</p>
+</footer>
 
-  <!-- IMPORTANT: updated JS filename -->
-  <script src="script-v2.js"></script>
+<script src="script-v3.js"></script>
 </body>
 </html>
