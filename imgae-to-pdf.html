@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
+<div class="tool-container">
+  <h2>Image Resizer</h2>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-</head>
+  <div class="drop-area" id="dropNormal">Click or Drag & Drop Image</div>
+  <input type="file" id="normalInput" accept="image/*" hidden>
 
-<body>
-  
-</body>
+  <img id="normalPreview">
+  <p class="status" id="normalStatus"></p>
 
-</html>
+  <button onclick="compressImage(200)">200 KB</button>
+  <button onclick="compressImage(500)">500 KB</button>
+
+  <a class="download-btn" id="normalDownload">Download</a>
+</div>
+
+<script>
+  initTool("dropNormal", "normalInput", "normalPreview", "normalStatus", "normalDownload");
+</script>
