@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Easy File Tools – Image Resizer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f7fb;
+    }
+
+    .tool-container {
+      max-width: 420px;
+      margin: 20px auto;
+      padding: 14px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .drop-area {
+      border: 2px dashed #6b6bff;
+      border-radius: 12px;
+      padding: 24px 12px;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 12px 0;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .drop-area.dragover {
+      background: #eef2ff;
+      border-color: #4f46e5;
+    }
+
+    .controls button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 15px;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+
+    .controls button.secondary {
+      background: #0ea5e9;
+    }
+
+    .preview {
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .preview img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 6px;
+    }
+
+    .download-btn {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      text-decoration: none;
+      background: #22c55e;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tool-container">
+    <h1>Government Exam Image Resizer</h1>
+
+    <div id="dropBox" class="drop-area">
+      📂 Click or Drop Image Here
+    </div>
+
+    <input type="file" id="fileInput" accept="image/*" hidden />
+
+    <div class="controls">
+      <button onclick="resizeToKB(50)">Resize to 50 KB</button>
+      <button onclick="resizeToKB(100)" class="secondary">Resize to 100 KB</button>
+      <button onclick="resizeToKB(200)" class="secondary">Resize to 200 KB</button>
+    </div>
+
+    <div class="preview">
+      <div id="sizeInfo"></div>
+      <img id="previewImg" />
+      <a id="downloadBtn" class="download-btn" download="resized.jpg" style="display:none;">
+        Download Image
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const dropBox = document.getElementById("dropBox");
+    const fileInput = document.getElementById("fileInput");
+    const previewImg = document.getElementById("previewImg");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const sizeInfo = document.getElementById("sizeInfo");
+
+    let currentImage = null;
+
+    dropBox.addEventListener("click", () => fileInput.click());
+
+    dropBox.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropBox.classList.add("dragover");
+    });
+
+    dropBox.addEventListener("dragleave", () => {
+      dropBox.classList.remove("dragover");
+    });
+
+    dropBox.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropBox.classList.remove("dragover");
+      const file = e.dataTransfer.files[0];
+      loadImage(file);
+    });
+
+    fileInput.addEventListener("change", (e) => {
+      loadImage(e.target.files[0]);
+    });
+
+    function loadImage(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          currentImage = img;
+          previewImg.src = img.src;
+          sizeInfo.innerText = "Original size: " + Math.round(file.size / 1024) + " KB";
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resizeToKB(targetKB) {
+      if (!currentImage) {
+        alert("Please select an image first!");
+        return;
+      }
+
+      compressToTargetKB(currentImage, targetKB, (dataUrl) => {
+        previewImg.src = dataUrl;
+        downloadBtn.href = dataUrl;
+        downloadBtn.style.display = "block";
+
+        const sizeKB = Math.round((dataUrl.length * 3) / 4 / 1024);
+        sizeInfo.innerText = "Final size: ~" + sizeKB + " KB";
+      });
+    }
+
+    function compressToTargetKB(img, targetKB, cb) {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      let minQ = 0.1, maxQ = 0.95;
+      let bestDataUrl = null;
+
+      for (let i = 0; i < 10; i++) {
+        const q = (minQ + maxQ) / 2;
+        const dataUrl = canvas.toDataURL("image/jpeg", q);
+        const sizeKB = Math.round((dataUrl.length * 3) / 4 / 1024);
+
+        if (sizeKB > targetKB) {
+          maxQ = q;
+        } else {
+          minQ = q;
+          bestDataUrl = dataUrl;
+        }
+      }
+
+      cb(bestDataUrl);
+    }
+  </script>
+
+</body>
+        </html>
+        
