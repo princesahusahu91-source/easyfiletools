@@ -1,177 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Compress Photo Under 100KB for SSC, Railway & Govt Exams | EasyFile Tools</title>
+  <meta charset="UTF-8" />
+  <title>EasyFile Tools – Govt Exam Photo Compressor & Resizer</title>
+  <meta name="description" content="Compress photos for SSC, Banking, Railway, OSSSC exams. Resize passport size photos online. Free image compressor for govt forms, Aadhaar, PAN, resume & documents." />
+  <meta name="keywords" content="govt exam photo compressor, ssc photo resize, banking exam photo size, railway photo resize, passport size photo compressor, image compressor online, compress photo for form, resize image online free" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta name="description" content="Compress photo under 100KB, 50KB or 20KB for SSC, Railway, Banking and Govt Exams. Free online image compressor tool. No signup required. Works on mobile.">
-<meta name="keywords" content="compress photo under 100kb, ssc photo size, railway photo size, banking photo resize, image compressor online free, resize photo for govt exam">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      color: #111;
+    }
 
-<style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background: linear-gradient(135deg,#667eea,#764ba2);
-    color:white;
-    text-align:center;
-}
-header{
-    padding:40px 20px;
-}
-h1{
-    font-size:36px;
-    margin-bottom:10px;
-}
-p{
-    font-size:18px;
-}
-.tool-box{
-    background:white;
-    color:black;
-    padding:30px;
-    margin:20px auto;
-    max-width:500px;
-    border-radius:12px;
-}
-input[type="file"]{
-    margin:15px 0;
-}
-button{
-    background:#ff4b2b;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    margin:10px;
-    font-size:16px;
-    border-radius:8px;
-    cursor:pointer;
-}
-button:hover{
-    background:#ff416c;
-}
-.presets{
-    margin-top:20px;
-}
-.trust{
-    background:white;
-    color:black;
-    padding:30px;
-    margin-top:40px;
-}
-.content{
-    background:white;
-    color:black;
-    padding:40px 20px;
-    text-align:left;
-}
-footer{
-    padding:20px;
-    font-size:14px;
-}
-a{
-    color:#ffd700;
-}
-</style>
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 16px;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 14px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero h2 {
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .upload-box {
+      border: 2px dashed #6366f1;
+      padding: 40px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-bottom: 20px;
+    }
+
+    .upload-box:hover {
+      background: #eef2ff;
+    }
+
+    .upload-box span {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #4f46e5;
+    }
+
+    .btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      background: #4338ca;
+    }
+
+    .presets {
+      max-width: 900px;
+      margin: 40px auto;
+      text-align: center;
+      color: white;
+    }
+
+    .presets h3 {
+      margin-bottom: 15px;
+    }
+
+    .preset-buttons button {
+      background: white;
+      color: #4f46e5;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .preset-buttons button:hover {
+      background: #ddd;
+    }
+
+    .trust {
+      background: white;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .trust h3 {
+      margin-bottom: 10px;
+    }
+
+    .trust p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .seo-content {
+      background: #f9fafb;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 14px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: white;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-<h1>Compress Photo Under 100KB for Govt Exams</h1>
-<p>Free Online Image Compressor for SSC, Railway, Banking & Normal Use</p>
+  <h1>EasyFile Tools</h1>
+  <p>Free online image compressor and resizer for govt exam forms, SSC, Banking, Railway, OSSSC, Aadhaar, PAN, Passport & normal document use. Compress photos easily and fast.</p>
 </header>
 
-<div class="tool-box">
-<h2>Image Compressor</h2>
+<div class="hero">
+  <h2>Govt Exam Photo Compressor</h2>
+  <p>Compress and resize images for SSC, Banking, Railway & forms. Click below to select image and compress it to required KB size.</p>
 
-<input type="file" id="imageInput" accept="image/*">
+  <label class="upload-box">
+    <input type="file" hidden>
+    <span>Click to Select Image</span>
+  </label>
 
-<br>
-
-<button onclick="compressImage(100)">Compress Under 100KB</button>
-<button onclick="compressImage(50)">Compress Under 50KB</button>
-<button onclick="compressImage(20)">Compress Under 20KB</button>
-
-<div class="presets">
-<h3>Exam Presets</h3>
-<a href="ssc-photo-size.html"><button>SSC Photo (20-50KB)</button></a>
-<a href="railway-photo-size.html"><button>Railway Photo (30-70KB)</button></a>
-<a href="banking-photo-size.html"><button>Banking Exam (20-100KB)</button></a>
+  <button class="btn">Compress Image</button>
 </div>
 
-<p id="status"></p>
+<div class="presets">
+  <h3>🎯 Exam Presets</h3>
+  <div class="preset-buttons">
+    <button onclick="location.href='ssc.html'">SSC Photo Compressor</button>
+    <button onclick="location.href='banking.html'">Banking Photo Compressor</button>
+    <button onclick="location.href='railway.html'">Railway Photo Compressor</button>
+    <button onclick="location.href='osssc.html'">OSSSC Photo Compressor</button>
+  </div>
+
+  <h3 style="margin-top:25px;">📄 Normal Users</h3>
+  <div class="preset-buttons">
+    <button>Passport Size Photo</button>
+    <button>Aadhaar Photo Resize</button>
+    <button>PAN Card Photo Resize</button>
+    <button>Resume Photo Resize</button>
+  </div>
 </div>
 
 <div class="trust">
-<h2>Why Use EasyFile Tools?</h2>
-<p>✔ No Signup Required</p>
-<p>✔ 100% Free Tool</p>
-<p>✔ Works on Mobile & Desktop</p>
-<p>✔ Your Images Are NOT Stored</p>
+  <h3>Why Trust EasyFile Tools?</h3>
+  <p>
+    ✔ 100% Free & No Login Required <br>
+    ✔ Works on Mobile & PC <br>
+    ✔ Files never uploaded to server (Privacy Safe) <br>
+    ✔ Made specially for Indian govt exam students <br>
+    ✔ Simple UI like iLovePDF, no confusion
+  </p>
 </div>
 
-<div class="content">
-<h2>How to Compress Photo Under 100KB for SSC, Railway & Banking Exams</h2>
-
-<p>Many government exams like SSC, Railway Recruitment Board (RRB), and Banking exams require candidates to upload photos and signatures in specific size limits. Most applications demand image sizes between 20KB and 100KB. If your image is larger, the application form will reject it.</p>
-
-<p>Our free online image compressor helps you resize and compress your photo instantly without reducing quality too much. You do not need to install any software. Just select your image, choose your required size like 20KB, 50KB or 100KB, and download the compressed file.</p>
-
-<p>SSC exams usually require passport-size photos between 20KB to 50KB. Railway exams often allow 30KB to 70KB images. Banking and IBPS exams may allow up to 100KB. Instead of manually editing images in complicated software, this tool automatically reduces file size for you.</p>
-
-<p>For normal users, this tool is also useful for compressing images before uploading to websites, emails, online forms, or social media. Large images slow down uploads and consume more data. Compressing them makes sharing faster and easier.</p>
-
-<p>This tool works completely in your browser, which means your images are not uploaded to any server. Your privacy is protected. It is fast, secure, and optimized for mobile users.</p>
-
-<p>If you are preparing for competitive exams, bookmark this page. It will save you time during form filling and prevent rejection due to incorrect image size.</p>
-
+<div class="seo-content">
+  <h2>Free Govt Exam Photo Compressor & Image Resizer Online</h2>
+  <p>
+    EasyFile Tools is a free online image compressor designed specially for government exam students in India. Many exams like SSC, Banking, Railway, OSSSC and state-level recruitments require candidates to upload passport size photographs within strict size limits such as 20 KB to 50 KB, 50 KB to 100 KB, or sometimes 100 KB to 200 KB. Students often face rejection due to incorrect image size or format.
+  </p>
+  <p>
+    With EasyFile Tools, you can compress your photo online without installing any app. This tool helps you reduce image size while maintaining good quality. Whether you are applying for SSC CHSL, Banking exams like SBI PO or IBPS Clerk, Railway RRB forms, or OSSSC forms, our exam preset buttons make it easy to choose the right format.
+  </p>
+  <p>
+    Normal users can also resize photos for Aadhaar card, PAN card, passport application, resume photos, college forms, and other official documents. Our tool works directly in your browser and does not upload your photos to any server, keeping your data safe and private.
+  </p>
+  <p>
+    EasyFile Tools aims to become a one-stop solution for document image compression and resizing for both students and general users. We are continuously improving features to make file handling easier for everyone.
+  </p>
 </div>
 
 <footer>
-<p>© 2026 EasyFile Tools | Free Online Image Compressor</p>
+  © 2026 EasyFile Tools • Free Online Image Compressor for Govt Exams
 </footer>
-
-<script>
-function compressImage(targetKB){
-    const input = document.getElementById('imageInput');
-    const status = document.getElementById('status');
-
-    if(!input.files.length){
-        alert("Please select an image first.");
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(event){
-        const img = new Image();
-        img.onload = function(){
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img,0,0);
-
-            let quality = 0.9;
-            let compressed;
-
-            do{
-                compressed = canvas.toDataURL("image/jpeg", quality);
-                quality -= 0.05;
-            }while(compressed.length/1024 > targetKB && quality > 0.1);
-
-            const link = document.createElement('a');
-            link.href = compressed;
-            link.download = "compressed.jpg";
-            link.click();
-
-            status.innerText = "Image compressed successfully!";
-        }
-        img.src = event.target.result;
-    }
-    reader.readAsDataURL(input.files[0]);
-}
-</script>
 
 </body>
 </html>
