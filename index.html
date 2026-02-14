@@ -1,286 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>EasyFile Tools – Compress Photo for Govt Exams</title>
-  <meta name="description" content="Compress photo online for SSC, Railway, Banking & Govt exam forms. Resize passport size photo, signature & documents free.">
-  <meta name="keywords" content="compress photo under 100kb, ssc photo resize, railway photo compressor, banking photo size, passport size photo compressor">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4f46e5, #9333ea);
-      color: #111;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .hero {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px 20px 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      text-align: center;
-      margin-top: 20px;
-    }
-    .hero h1 { margin: 0 0 8px; }
-    .hero p { margin: 0 0 14px; color: #555; }
+<title>EasyFile Tools – Photo & Signature Resizer</title>
 
-    .upload-box {
-      margin: 16px auto 10px;
-      padding: 36px 18px;
-      max-width: 520px;
-      background: #fafafa;
-      border: 2px dashed #6366f1;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: 0.25s ease;
-      text-align: center;
-    }
-    .upload-box:hover {
-      background: #eef2ff;
-      border-color: #4f46e5;
-    }
-    .upload-box.dragover {
-      background: #e0e7ff;
-      border-color: #4f46e5;
-    }
-    .upload-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #4f46e5;
-      margin-top: 8px;
-    }
-    .upload-sub {
-      font-size: 14px;
-      color: #555;
-      margin-top: 6px;
-    }
-
-    .presets {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 12px 0 6px;
-    }
-    .chip {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #c7d2fe;
-      background: #eef2ff;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    .row {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin: 10px 0;
-    }
-    input[type="number"] {
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      width: 170px;
-    }
-
-    .btn {
-      background: #4f46e5;
-      color: #fff;
-      border: none;
-      padding: 12px 22px;
-      font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .btn.secondary { background: #16a34a; }
-
-    .preview { margin-top: 12px; display: none; }
-    .preview img { max-width: 100%; border-radius: 10px; }
-    .meta { color: #444; font-size: 13px; margin-top: 6px; }
-
-    .trust {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .trust div {
-      background: #f3f4f6;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    .seo {
-      background: #f9fafb;
-      border-radius: 14px;
-      padding: 22px;
-      margin: 22px auto;
-      line-height: 1.7;
-      max-width: 1100px;
-    }
-
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .tool {
-      background: #fff;
-      border-radius: 12px;
-      padding: 14px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-      text-decoration: none;
-      color: #111;
-      font-weight: 600;
-    }
-  </style>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8faff;
+  }
+  header {
+    background: #4f46e5;
+    color: white;
+    text-align: center;
+    padding: 18px 0;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #4f46e5;
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 2px solid #4f46e5;
+    border-radius: 8px;
+  }
+  nav a:hover {
+    background: #eef2ff;
+  }
+  .hero {
+    padding: 20px;
+    text-align: center;
+  }
+  .hero p {
+    font-size: 16px;
+    color: #333;
+  }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    padding: 10px 20px;
+  }
+  .tool-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    padding: 14px;
+  }
+  .tool-card a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4f46e5;
+    font-weight: 600;
+  }
+  .tool-card:hover {
+    transform: scale(1.02);
+  }
+  footer {
+    text-align: center;
+    padding: 14px 0;
+    font-size: 13px;
+    color: #444;
+    margin-top: 18px;
+  }
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="hero">
-      <h1>Compress Photo for SSC, Railway & Govt Exams</h1>
-      <p>Reduce image size to exact KB for exam forms. Free, fast & secure.</p>
 
-      <div id="uploadArea" class="upload-box">
-        <div style="font-size:52px;color:#4f46e5;">📁</div>
-        <div class="upload-title">Click or Drag & Drop Image</div>
-        <div class="upload-sub">JPG, PNG • up to 5MB</div>
-        <input id="fileInput" type="file" accept="image/*" hidden />
-      </div>
+<header>
+  <h1>EasyFile Tools</h1>
+  <p>Compress Photos, Resize Signatures, Convert PDF & More</p>
+</header>
 
-      <div class="presets">
-        <div class="chip" data-kb="20">SSC 20KB</div>
-        <div class="chip" data-kb="50">SSC 50KB</div>
-        <div class="chip" data-kb="100">Railway 100KB</div>
-        <div class="chip" data-kb="200">Docs 200KB</div>
-      </div>
+<nav>
+  <a href="govt-photo.html">Photo Resizer</a>
+  <a href="signature.html">Signature Resizer</a>
+  <a href="image-resizer.html">Image Resizer</a>
+  <a href="image-to-pdf.html">Image to PDF</a>
+  <a href="age-calculator.html">Age Calculator</a>
+  <a href="marks-calculator.html">Marks Calculator</a>
+</nav>
 
-      <div class="row">
-        <input id="targetKB" type="number" min="20" max="500" value="50" />
-        <span>Target Size (KB)</span>
-      </div>
+<div class="hero">
+  <p>
+    Easily resize and compress images for application forms,
+    exams, documents & certificates. Works on mobile and PC with no uploads to servers.
+  </p>
+</div>
 
-      <div class="row">
-        <button id="compressBtn" class="btn">Compress Image</button>
-        <a id="downloadBtn" class="btn secondary" style="display:none;" download>Download</a>
-      </div>
-
-      <div class="preview" id="preview">
-        <img id="outImg" />
-        <div class="meta" id="sizeInfo"></div>
-      </div>
-
-      <div class="trust">
-        <div>✔ No Signup Required</div>
-        <div>✔ 100% Free</div>
-        <div>✔ Works on Mobile</div>
-        <div>✔ Images Not Stored</div>
-      </div>
-
-      <div class="tools">
-        <a class="tool" href="ssc.html">Govt Exam Photo Resizer</a>
-        <a class="tool" href="signature.html">Signature Resizer</a>
-        <a class="tool" href="image-to-pdf.html">Image to PDF</a>
-        <a class="tool" href="age.html">Age Calculator</a>
-        <a class="tool" href="marks.html">Marks Calculator</a>
-      </div>
-    </div>
-
-    <div class="seo">
-      <h2>Compress Photo Under 100KB for SSC, Railway & Banking Exams</h2>
-      <p>
-        Government exam forms like SSC, Railway and Banking require candidates to upload passport size photos
-        within strict size limits such as 20KB, 50KB or 100KB. Many applications get rejected due to wrong image
-        size or high file size. EasyFile Tools helps you compress photos online to the exact KB range without
-        losing important clarity. This tool works directly in your browser, so your images are not uploaded
-        to any server.
-      </p>
-      <p>
-        You can also resize images for normal documents such as Aadhaar, PAN, passport, resumes and online
-        forms. Choose a preset size for exams or enter a custom target size between 20KB and 500KB. The
-        compressor will automatically adjust quality to get the closest possible size. This saves time and
-        avoids repeated trial-and-error while filling forms.
-      </p>
-    </div>
+<div class="tools-grid">
+  <div class="tool-card">
+    📸<strong>Govt Photo</strong>
+    <a href="govt-photo.html">Open Tool</a>
   </div>
 
-<script>
-  const uploadArea = document.getElementById("uploadArea");
-  const fileInput = document.getElementById("fileInput");
-  const compressBtn = document.getElementById("compressBtn");
-  const targetKBInput = document.getElementById("targetKB");
-  const preview = document.getElementById("preview");
-  const outImg = document.getElementById("outImg");
-  const sizeInfo = document.getElementById("sizeInfo");
-  const downloadBtn = document.getElementById("downloadBtn");
+  <div class="tool-card">
+    ✍️<strong>Signature Resizer</strong>
+    <a href="signature.html">Open Tool</a>
+  </div>
 
-  uploadArea.addEventListener("click", () => fileInput.click());
-  uploadArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    uploadArea.classList.add("dragover");
-  });
-  uploadArea.addEventListener("dragleave", () => uploadArea.classList.remove("dragover"));
-  uploadArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    uploadArea.classList.remove("dragover");
-    if (e.dataTransfer.files[0]) fileInput.files = e.dataTransfer.files;
-  });
+  <div class="tool-card">
+    🖼️<strong>Image Resizer</strong>
+    <a href="image-resizer.html">Open Tool</a>
+  </div>
 
-  document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', () => targetKBInput.value = chip.dataset.kb);
-  });
+  <div class="tool-card">
+    📄<strong>Image to PDF</strong>
+    <a href="image-to-pdf.html">Open Tool</a>
+  </div>
 
-  let selectedFile;
-  fileInput.addEventListener("change", e => selectedFile = e.target.files[0]);
+  <div class="tool-card">
+    🎂<strong>Age Calculator</strong>
+    <a href="age-calculator.html">Open Tool</a>
+  </div>
 
-  compressBtn.addEventListener("click", async () => {
-    if (!selectedFile) return alert("Please select an image first.");
-    const targetKB = Math.min(500, Math.max(20, Number(targetKBInput.value || 50)));
+  <div class="tool-card">
+    📊<strong>Marks Calculator</strong>
+    <a href="marks-calculator.html">Open Tool</a>
+  </div>
+</div>
 
-    const img = new Image();
-    img.onload = async () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      const maxW = 1200;
-      const scale = Math.min(1, maxW / img.width);
-      canvas.width = Math.round(img.width * scale);
-      canvas.height = Math.round(img.height * scale);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+<footer>
+  © 2026 EasyFile Tools — Built by You
+</footer>
 
-      let quality = 0.92;
-      let blob = await new Promise(r => canvas.toBlob(r, "image/jpeg", quality));
-      let sizeKB = blob.size / 1024;
-      let tries = 0;
-
-      while ((sizeKB > targetKB + 3 || sizeKB < targetKB - 3) && tries < 12) {
-        quality += sizeKB > targetKB ? -0.08 : 0.04;
-        quality = Math.min(0.95, Math.max(0.2, quality));
-        blob = await new Promise(r => canvas.toBlob(r, "image/jpeg", quality));
-        sizeKB = blob.size / 1024;
-        tries++;
-      }
-
-      const url = URL.createObjectURL(blob);
-      outImg.src = url;
-      sizeInfo.textContent = `Output size: ${sizeKB.toFixed(1)} KB (target ${targetKB} KB)`;
-      downloadBtn.href = url;
-      downloadBtn.style.display = "inline-block";
-      preview.style.display = "block";
-    };
-    img.src = URL.createObjectURL(selectedFile);
-  });
-</script>
 </body>
 </html>
