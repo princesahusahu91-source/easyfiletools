@@ -1,6 +1,6 @@
-<script>
+// tool.js – common logic for all image tools
+
 let originalImage = null;
-let currentPreview = null;
 
 function initTool(dropId, inputId, previewId, statusId, downloadId) {
   const dropArea = document.getElementById(dropId);
@@ -9,35 +9,50 @@ function initTool(dropId, inputId, previewId, statusId, downloadId) {
   const statusText = document.getElementById(statusId);
   const downloadBtn = document.getElementById(downloadId);
 
+  if (!dropArea || !fileInput || !preview || !statusText || !downloadBtn) {
+    console.error("Tool init failed: One or more elements not found");
+    return;
+  }
+
+  // Click to open file picker
   dropArea.addEventListener("click", () => fileInput.click());
 
-  dropArea.addEventListener("dragover", e => {
+  // Drag over
+  dropArea.addEventListener("dragover", (e) => {
     e.preventDefault();
     dropArea.classList.add("dragover");
   });
 
+  // Drag leave
   dropArea.addEventListener("dragleave", () => {
     dropArea.classList.remove("dragover");
   });
 
-  dropArea.addEventListener("drop", e => {
+  // Drop file
+  dropArea.addEventListener("drop", (e) => {
     e.preventDefault();
     dropArea.classList.remove("dragover");
-    handleFile(e.dataTransfer.files[0], preview, statusText);
+    const file = e.dataTransfer.files[0];
+    handleFile(file, preview, statusText);
   });
 
+  // File input change
   fileInput.addEventListener("change", () => {
     handleFile(fileInput.files[0], preview, statusText);
   });
 
-  window.compressImage = function(targetKB) {
+  // Expose compress function globally
+  window.compressImage = function (targetKB) {
     if (!originalImage) {
-      alert("Upload image first");
+      alert("Please upload an image first");
       return;
     }
 
+    statusText.innerText = "Compressing... ⏳";
+
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+
     canvas.width = originalImage.width;
     canvas.height = originalImage.height;
     ctx.drawImage(originalImage, 0, 0);
@@ -55,15 +70,18 @@ function initTool(dropId, inputId, previewId, statusId, downloadId) {
     preview.src = output;
     downloadBtn.href = output;
     downloadBtn.download = "resized-image.jpg";
-    statusText.innerText = "Done ✅ Final Size: " + sizeKB + " KB";
+
+    statusText.innerText = `Done ✅ Final Size: ${sizeKB} KB`;
   };
 }
 
 function handleFile(file, preview, statusText) {
   if (!file || !file.type.startsWith("image")) {
-    alert("Please upload a valid image");
+    alert("Please upload a valid image file");
     return;
   }
+
+  statusText.innerText = "Loading image...";
 
   const reader = new FileReader();
   reader.onload = () => {
@@ -78,9 +96,7 @@ function handleFile(file, preview, statusText) {
   reader.readAsDataURL(file);
 }
 
-// prevent browser opening dropped file
-["dragenter","dragover","dragleave","drop"].forEach(evt => {
-  document.body.addEventListener(evt, e => e.preventDefault());
+// Prevent browser from opening file on drop anywhere
+["dragenter", "dragover", "dragleave", "drop"].forEach(evt => {
+  document.addEventListener(evt, (e) => e.preventDefault());
 });
-</script>
-    
