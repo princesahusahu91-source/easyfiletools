@@ -1,0 +1,93 @@
+<!-- Replace entire banking.html with this -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Banking Exam Photo Compressor – Resize Banking Form Photo</title>
+  <meta name="description" content="Compress banking exam photos online to required KB size. Resize photo for SBI, IBPS, RRB forms easily.">
+  <meta name="keywords" content="banking photo compressor, sbi photo resize, ibps photo size, banking exam photo resize">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#4f46e5,#9333ea)}
+    .box{max-width:900px;margin:40px auto;background:#fff;padding:28px 20px 30px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.2);text-align:center}
+    h1{margin:0 0 6px} p{color:#555;margin:0 0 14px}
+    .upload-box{border:2px dashed #6366f1;padding:36px 18px;border-radius:12px;cursor:pointer;margin:12px 0 10px}
+    .upload-box:hover{background:#eef2ff}
+    .upload-box span{font-size:20px;font-weight:700;color:#4f46e5}
+    .presets{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+    .chip{padding:6px 10px;border-radius:999px;border:1px solid #c7d2fe;background:#eef2ff;cursor:pointer;font-size:13px}
+    .row{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:8px 0 10px}
+    input[type=number]{padding:10px 12px;border-radius:8px;border:1px solid #ddd;width:160px}
+    .btn{background:#4f46e5;color:#fff;border:none;padding:12px 22px;font-size:16px;border-radius:8px;cursor:pointer}
+    .btn.secondary{background:#16a34a}
+    .preview{margin-top:10px;display:none}
+    .preview img{max-width:100%;border-radius:8px}
+    .meta{color:#444;font-size:13px;margin-top:6px}
+  </style>
+</head>
+<body>
+<div class="box">
+  <h1>Banking Exam Photo Compressor</h1>
+  <p>Resize and compress photos for SBI, IBPS & Banking forms.</p>
+
+  <label class="upload-box">
+    <input id="fileInput" type="file" accept="image/*" hidden />
+    <span>Click to Select Image</span>
+  </label>
+
+  <div class="presets">
+    <div class="chip" data-kb="20">20KB</div>
+    <div class="chip" data-kb="50">50KB</div>
+    <div class="chip" data-kb="100">100KB</div>
+    <div class="chip" data-kb="200">Docs 200KB</div>
+  </div>
+
+  <div class="row">
+    <input id="targetKB" type="number" min="20" max="500" value="50" />
+    <span>Target Size (KB)</span>
+  </div>
+
+  <div class="row">
+    <button id="compressBtn" class="btn">Compress Photo</button>
+    <a id="downloadBtn" class="btn secondary" style="display:none;" download>Download</a>
+  </div>
+
+  <div class="preview" id="preview">
+    <img id="outImg" />
+    <div class="meta" id="sizeInfo"></div>
+  </div>
+</div>
+
+<script>
+const fileInput=document.getElementById('fileInput'),compressBtn=document.getElementById('compressBtn'),
+targetKBInput=document.getElementById('targetKB'),preview=document.getElementById('preview'),
+outImg=document.getElementById('outImg'),sizeInfo=document.getElementById('sizeInfo'),
+downloadBtn=document.getElementById('downloadBtn');
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>targetKBInput.value=c.dataset.kb);
+let selectedFile;
+fileInput.onchange=e=>selectedFile=e.target.files[0];
+compressBtn.onclick=async()=>{
+  if(!selectedFile) return alert('Please select an image first.');
+  const targetKB=Math.min(500,Math.max(20,Number(targetKBInput.value||50)));
+  const img=new Image();
+  img.onload=async()=>{
+    const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');
+    const maxW=1200,scale=Math.min(1,maxW/img.width);
+    canvas.width=Math.round(img.width*scale); canvas.height=Math.round(img.height*scale);
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+    let quality=.92, blob=await new Promise(r=>canvas.toBlob(r,'image/jpeg',quality));
+    let sizeKB=blob.size/1024,tries=0;
+    while((sizeKB>targetKB+3||sizeKB<targetKB-3)&&tries<12){
+      quality+= sizeKB>targetKB? -0.08:0.04; quality=Math.min(.95,Math.max(.2,quality));
+      blob=await new Promise(r=>canvas.toBlob(r,'image/jpeg',quality));
+      sizeKB=blob.size/1024; tries++;
+    }
+    const url=URL.createObjectURL(blob);
+    outImg.src=url; sizeInfo.textContent=`Output size: ${sizeKB.toFixed(1)} KB (target ${targetKB} KB)`;
+    downloadBtn.href=url; downloadBtn.style.display='inline-block'; preview.style.display='block';
+  };
+  img.src=URL.createObjectURL(selectedFile);
+};
+</script>
+</body>
+</html>
