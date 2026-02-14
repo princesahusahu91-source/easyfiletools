@@ -1,102 +1,50 @@
-// tool.js – common logic for all image tools
+// Robust image compressor to hit target KB
+async function compressToTarget(file, targetKB, maxW = 600, maxH = 600) {
+  const img = await loadImage(file);
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
 
-let originalImage = null;
+  let w = img.width, h = img.height;
+  const ratio = Math.min(maxW / w, maxH / h, 1);
+  w = Math.round(w * ratio); h = Math.round(h * ratio);
+  canvas.width = w; canvas.height = h;
+  ctx.drawImage(img, 0, 0, w, h);
 
-function initTool(dropId, inputId, previewId, statusId, downloadId) {
-  const dropArea = document.getElementById(dropId);
-  const fileInput = document.getElementById(inputId);
-  const preview = document.getElementById(previewId);
-  const statusText = document.getElementById(statusId);
-  const downloadBtn = document.getElementById(downloadId);
+  let q = 0.92, blob = await toBlob(canvas, q);
+  let loops = 0;
 
-  if (!dropArea || !fileInput || !preview || !statusText || !downloadBtn) {
-    console.error("Tool init failed: One or more elements not found");
-    return;
+  while (blob.size / 1024 > targetKB && loops < 25) {
+    q -= 0.06;
+    if (q < 0.2) {
+      canvas.width = Math.round(canvas.width * 0.9);
+      canvas.height = Math.round(canvas.height * 0.9);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      q = 0.85;
+    }
+    blob = await toBlob(canvas, q);
+    loops++;
   }
-
-  // Click to open file picker
-  dropArea.addEventListener("click", () => fileInput.click());
-
-  // Drag over
-  dropArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropArea.classList.add("dragover");
-  });
-
-  // Drag leave
-  dropArea.addEventListener("dragleave", () => {
-    dropArea.classList.remove("dragover");
-  });
-
-  // Drop file
-  dropArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropArea.classList.remove("dragover");
-    const file = e.dataTransfer.files[0];
-    handleFile(file, preview, statusText);
-  });
-
-  // File input change
-  fileInput.addEventListener("change", () => {
-    handleFile(fileInput.files[0], preview, statusText);
-  });
-
-  // Expose compress function globally
-  window.compressImage = function (targetKB) {
-    if (!originalImage) {
-      alert("Please upload an image first");
-      return;
-    }
-
-    statusText.innerText = "Compressing... ⏳";
-
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = originalImage.width;
-    canvas.height = originalImage.height;
-    ctx.drawImage(originalImage, 0, 0);
-
-    let quality = 0.9;
-    let output = canvas.toDataURL("image/jpeg", quality);
-    let sizeKB = Math.round((output.length * 3) / 4 / 1024);
-
-    while (sizeKB > targetKB && quality > 0.1) {
-      quality -= 0.05;
-      output = canvas.toDataURL("image/jpeg", quality);
-      sizeKB = Math.round((output.length * 3) / 4 / 1024);
-    }
-
-    preview.src = output;
-    downloadBtn.href = output;
-    downloadBtn.download = "resized-image.jpg";
-
-    statusText.innerText = `Done ✅ Final Size: ${sizeKB} KB`;
-  };
+  return blob;
 }
 
-function handleFile(file, preview, statusText) {
-  if (!file || !file.type.startsWith("image")) {
-    alert("Please upload a valid image file");
-    return;
-  }
-
-  statusText.innerText = "Loading image...";
-
-  const reader = new FileReader();
-  reader.onload = () => {
+function toBlob(canvas, q) {
+  return new Promise(res => canvas.toBlob(b => res(b), "image/jpeg", q));
+}
+function loadImage(file) {
+  return new Promise((res, rej) => {
     const img = new Image();
-    img.onload = () => {
-      originalImage = img;
-      preview.src = img.src;
-      statusText.innerText = "Image loaded. Choose size 👇";
-    };
-    img.src = reader.result;
-  };
-  reader.readAsDataURL(file);
+    img.onload = () => res(img);
+    img.onerror = rej;
+    img.src = URL.createObjectURL(file);
+  });
 }
 
-// Prevent browser from opening file on drop anywhere
-["dragenter", "dragover", "dragleave", "drop"].forEach(evt => {
-  document.addEventListener(evt, (e) => e.preventDefault());
-});
+// Drag & drop
+function bindDrop(zone, input) {
+  zone.addEventListener("dragover", e => { e.preventDefault(); zone.classList.add("dragover"); });
+  zone.addEventListener("dragleave", () => zone.classList.remove("dragover"));
+  zone.addEventListener("drop", e => {
+    e.preventDefault(); zone.classList.remove("dragover");
+    if (e.dataTransfer.files[0]) input.files = e.dataTransfer.files;
+  });
+}
