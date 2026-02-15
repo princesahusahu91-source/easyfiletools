@@ -21,34 +21,40 @@
   <p class="tagline">Compress images to exact sizes (20KB – 500KB) for exam forms</p>
 </header>
 
+<nav>
+  <a href="#uploadBox">Compress / Resize</a> |
+  <a href="#preview">Preview</a> |
+  <a href="#about">About</a>
+</nav>
+
 <main>
   <!-- Upload & Compression Tool -->
-  <div class="upload-box" id="uploadBox">
+  <section id="uploadBox">
+    <h2>Compress & Resize Images</h2>
     <div class="upload-inner">
-      <div class="icon">📷</div>
+      <div class="icon" role="img" aria-label="Upload Image Icon">📷</div>
       <p class="main-text" id="mainText">Select image to compress</p>
       <p class="sub-text">or Drag & Drop here</p>
       <button id="selectBtn">Select Image</button>
       <input type="file" id="fileInput" accept="image/*" hidden>
     </div>
-  </div>
 
-  <div class="controls">
-    <div class="row">
+    <div class="controls">
       <label for="targetKB">Target size (KB)</label>
       <input type="number" id="targetKB" min="20" max="500" value="50">
       <button id="compressBtn">Compress</button>
+      <p class="hint">Enter a size between 20 KB and 500 KB</p>
     </div>
-    <p class="hint">Enter a size between 20 KB and 500 KB</p>
-  </div>
+  </section>
 
   <!-- Preview Section -->
   <section id="preview" class="preview">
-    <!-- previews injected -->
+    <h2>Preview Compressed Image</h2>
+    <!-- previews injected by script -->
   </section>
 
   <!-- About Section (SEO + AdSense) -->
-  <section class="about">
+  <section id="about" class="about">
     <h2>About Easy File Tools</h2>
     <p>
       Easy File Tools helps students apply for government exams by providing free online tools like
