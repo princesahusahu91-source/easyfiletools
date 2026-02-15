@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-  <!-- SEO -->
-  <title>Easy File Tools – Govt Exam Image Compressor & Photo Resizer Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Compress and resize images for government exam forms. Free online tool to get exact 20KB, 50KB, 100KB, 200KB, 500KB images. Private & secure.">
-  <meta name="keywords" content="govt exam image compressor, compress image to 20kb, 50kb photo resize, 100kb image, passport size photo online, ssc photo resize, railway exam photo size, photo resizer online">
+  <title>Easy File Tools – Govt Exam Image Compressor (20KB, 50KB, 100KB)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free government exam image compressor. Resize photo to exact 20KB, 50KB, 100KB, 200KB, 500KB. Passport size photo resize. No upload, 100% private." />
+  <meta name="keywords" content="govt exam image compressor, compress image to 20kb, 50kb photo resize, 100kb image, passport size photo online, ssc photo resize, railway exam photo size" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://princesahusahu91-source.github.io/easyfiletools/" />
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="google761b348db6b26549.html" />
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Open Graph (for WhatsApp, FB sharing) -->
+  <meta property="og:title" content="Easy File Tools – Govt Exam Image Compressor" />
+  <meta property="og:description" content="Compress images to exact KB size for SSC, Railway & Govt exam forms. No upload. 100% private." />
+  <meta property="og:url" content="https://princesahusahu91-source.github.io/easyfiletools/" />
+  <meta property="og:type" content="website" />
+
+  <!-- AdSense (Add after approval) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+    crossorigin="anonymous"></script>
+  -->
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header>
-  <h1>Free Govt Exam Image Compressor & Photo Resizer</h1>
-  <p class="tagline">Compress images to exact sizes (20KB – 500KB) for exam forms</p>
+  <h1>Free Govt Exam Image Compressor & File Tools</h1>
+  <p class="tagline">Compress image to exact size (20KB – 500KB) for exam forms</p>
 </header>
 
-<nav>
-  <a href="#uploadBox">Compress / Resize</a> |
-  <a href="#preview">Preview</a> |
-  <a href="#about">About</a>
-</nav>
-
 <main>
-  <!-- Upload & Compression Tool -->
-  <section id="uploadBox">
-    <h2>Compress & Resize Images</h2>
+  <div class="upload-box" id="uploadBox">
     <div class="upload-inner">
-      <div class="icon" role="img" aria-label="Upload Image Icon">📷</div>
+      <div class="icon">📷</div>
       <p class="main-text" id="mainText">Select image to compress</p>
       <p class="sub-text">or Drag & Drop here</p>
       <button id="selectBtn">Select Image</button>
-      <input type="file" id="fileInput" accept="image/*" hidden>
+      <input type="file" id="fileInput" accept="image/*" hidden />
     </div>
+  </div>
 
-    <div class="controls">
-      <label for="targetKB">Target size (KB)</label>
-      <input type="number" id="targetKB" min="20" max="500" value="50">
+  <div class="controls">
+    <div class="row">
+      <label>Target size (KB)</label>
+      <input type="number" id="targetKB" min="20" max="500" value="50" />
       <button id="compressBtn">Compress</button>
-      <p class="hint">Enter a size between 20 KB and 500 KB</p>
     </div>
-  </section>
+    <p class="hint">Enter between 20 KB and 500 KB</p>
+  </div>
 
-  <!-- Preview Section -->
-  <section id="preview" class="preview">
-    <h2>Preview Compressed Image</h2>
-    <!-- previews injected by script -->
-  </section>
+  <section id="preview" class="preview"></section>
 
-  <!-- About Section (SEO + AdSense) -->
-  <section id="about" class="about">
+  <section class="about">
     <h2>About Easy File Tools</h2>
     <p>
       Easy File Tools helps students apply for government exams by providing free online tools like
-      image compressor and photo resizer to exact 20KB, 50KB, 100KB, 200KB, and 500KB sizes.
-      No registration required. Your files never leave your device.
+      image compressor and photo resizer to exact 20KB, 50KB, 100KB, 200KB and 500KB sizes.
+      Your files never leave your device.
     </p>
 
     <h3>Useful For</h3>
@@ -69,12 +72,6 @@
       <li>Police & State Govt Forms</li>
       <li>Passport Size Photo Resize</li>
     </ul>
-
-    <h3>How It Works</h3>
-    <p>
-      Simply select or drag your image into the tool, choose the target size, and click Compress. 
-      Download the resized image instantly, ready for your exam forms.
-    </p>
   </section>
 </main>
 
