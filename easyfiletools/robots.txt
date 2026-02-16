@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://princesahusahu91-source.github.io/easyfiletools/sitemap.xml
