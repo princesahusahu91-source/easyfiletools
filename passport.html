@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Passport Size Photo Maker (Govt Exam)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create passport size photo online for SSC, Railway & Govt exam forms. Resize to 3.5x4.5cm. 100% private." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Passport Size Photo Maker</h1>
+  <p class="tagline">Resize photo to passport size for govt exams</p>
+</header>
+
+<main>
+  <section class="tool-card">
+    <h2>Upload Photo</h2>
+
+    <div class="upload-box" id="uploadBox">
+      <div class="upload-inner">
+        <div class="icon">🪪</div>
+        <p class="main-text" id="mainText">Select photo</p>
+        <p class="sub-text">or Drag & Drop here</p>
+        <button id="selectBtn">Select Photo</button>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="compressBtn">Make Passport Size</button>
+      <p class="hint">Auto resize to 3.5 x 4.5 cm ratio</p>
+    </div>
+
+    <section id="preview" class="preview"></section>
+  </section>
+
+  <section class="links">
+    <a href="./">⬅ Back to Home</a>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 EasyFileTools</p>
+</footer>
+
+<script>
+const uploadBox = document.getElementById("uploadBox");
+const fileInput = document.getElementById("fileInput");
+const selectBtn = document.getElementById("selectBtn");
+const compressBtn = document.getElementById("compressBtn");
+const preview = document.getElementById("preview");
+
+let selectedFile = null;
+
+selectBtn.onclick = () => fileInput.click();
+fileInput.onchange = () => selectedFile = fileInput.files[0];
+
+compressBtn.onclick = () => {
+  if (!selectedFile) return alert("Select image first");
+  const img = new Image();
+  img.src = URL.createObjectURL(selectedFile);
+
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 413;
+    canvas.height = 531; // passport ratio
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    const url = canvas.toDataURL("image/jpeg", 0.9);
+    preview.innerHTML = `
+      <img src="${url}">
+      <br><br>
+      <a href="${url}" download="passport-photo.jpg">
+        <button>Download</button>
+      </a>
+    `;
+  };
+};
+</script>
+</body>
+</html>
