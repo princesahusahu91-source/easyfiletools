@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compress Photo to Exact KB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:system-ui;
+  background:linear-gradient(135deg,#eef2ff,#ecfeff);
+  color:#0f172a;
+}
+
+.wrap{
+  max-width:520px;
+  margin:30px auto;
+  background:#fff;
+  padding:24px;
+  border-radius:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+h1{margin-top:0;font-size:1.3rem;}
+
+input,button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:0.95rem;
+}
+
+button{
+  background:#2563eb;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+button:hover{opacity:.9}
+
+#preview{
+  margin-top:12px;
+  max-width:100%;
+  border-radius:12px;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h1>📉 Compress Image to Exact KB</h1>
+  <input type="file" id="fileInput" accept="image/*">
+  <input type="number" id="targetKB" placeholder="Enter target KB (e.g. 50)">
+  <button onclick="compressImage()">Compress Now</button>
+  <img id="preview">
+  <a id="downloadLink" style="display:none;margin-top:12px;display:block;">Download Compressed Image</a>
+</div>
+
+<script src="compress.js"></script>
+</body>
+</html>
