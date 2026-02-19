@@ -2,104 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <title>Easy File Tools – Govt Exam Image Compressor (20KB, 50KB, 100KB)</title>
+  <title>EasyFileTools – Govt Exam Image Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Free government exam image compressor. Resize photo to exact 20KB, 50KB, 100KB, 200KB, 500KB. Photo & signature resize for SSC, Railway, Police forms. 100% private." />
-  <meta name="keywords" content="govt exam image compressor, compress image to 20kb, 50kb photo resize, 100kb image, passport size photo online, ssc photo resize, railway exam photo size, signature resize" />
+  <meta name="description" content="Compress and resize photos for Banking, SSC & Railway exams. No signup, no upload. Works on mobile." />
 
-  <link rel="canonical" href="https://princesahusahu91-source.github.io/easyfiletools/" />
-  <meta name="google-site-verification" content="google761b348db6b26549.html" />
+  <style>
+    :root {
+      --bg1:#f4f7ff;
+      --bg2:#eef9f6;
+      --card:#ffffff;
+      --primary:#2563eb;
+      --accent:#22c55e;
+      --text:#0f172a;
+      --muted:#64748b;
+      --radius:16px;
+    }
 
-  <meta property="og:title" content="Easy File Tools – Govt Exam Image Compressor" />
-  <meta property="og:description" content="Compress image & signature to exact KB size for SSC, Railway & Govt exam forms. 100% private." />
-  <meta property="og:url" content="https://princesahusahu91-source.github.io/easyfiletools/" />
-  <meta property="og:type" content="website" />
+    body{
+      margin:0;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      font-family:system-ui,-apple-system,BlinkMacSystemFont;
+      color:var(--text);
+    }
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Easy File Tools",
-    "url": "https://princesahusahu91-source.github.io/easyfiletools/"
-  }
-  </script>
+    header{
+      padding:22px;
+      text-align:center;
+    }
 
-  <link rel="stylesheet" href="style.css" />
+    header h1{
+      margin:0;
+      font-size:1.9rem;
+      font-weight:800;
+      letter-spacing:-0.5px;
+    }
+
+    header span{ color:var(--primary); }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:14px;
+    }
+
+    .hero{
+      background:var(--card);
+      border-radius:22px;
+      padding:28px 20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+
+    .hero h2{
+      margin:0;
+      font-size:1.4rem;
+    }
+
+    .hero p{
+      color:var(--muted);
+      margin-top:8px;
+      font-size:0.95rem;
+    }
+
+    .tools{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:16px;
+    }
+
+    .tool{
+      background:var(--card);
+      border-radius:18px;
+      padding:20px;
+      text-decoration:none;
+      color:inherit;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      transition:all 0.2s ease;
+      border:1px solid #eef2ff;
+    }
+
+    .tool:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 32px rgba(0,0,0,0.12);
+      border-color:#c7d2fe;
+    }
+
+    .tool h3{
+      margin:0 0 6px;
+      font-size:1.05rem;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size:0.7rem;
+      padding:4px 8px;
+      background:#ecfeff;
+      color:#0369a1;
+      border-radius:999px;
+      margin-bottom:8px;
+    }
+
+    footer{
+      text-align:center;
+      padding:22px;
+      color:var(--muted);
+      font-size:0.85rem;
+      margin-top:40px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>Govt Exam Image Compressor & File Tools</h1>
-  <p class="tagline">Resize photo & signature to exact KB size (20KB – 500KB)</p>
-  <p style="text-align:center;color:#64748b;font-size:0.9rem;margin-top:6px;">
-    No signup • No upload • Works on mobile
-  </p>
+  <h1><span>Easy</span>FileTools</h1>
+  <p>Govt Exam Photo & Signature Tools</p>
 </header>
 
-<main>
-  <!-- TOOLS NAV -->
-  <section class="tool-card">
-    <h2>All Govt Exam Photo & File Tools</h2>
-    <p>Free tools for SSC, Railway, Police & State govt forms. 100% private, works on mobile.</p>
-    <div class="links">
-      <a class="tool-btn" href="./">📷 Image Compressor (20KB–500KB)</a>
-      <a class="tool-btn" href="./signature.html">✍️ Signature Resizer (10KB–50KB)</a>
-      <a class="tool-btn" href="./passport.html">🪪 Passport Size Photo Maker</a>
-    </div>
-  </section>
+<div class="container">
 
-  <!-- TOOL -->
-  <section class="tool-card">
-    <h2>Govt Exam Photo Compressor</h2>
-    <p>Resize photo to exact size for SSC, Railway, Police & State Govt forms.</p>
+  <div class="hero">
+    <h2>Fast Tools for Banking, SSC & Railway Exams</h2>
+    <p>No signup • No upload • Works on mobile</p>
+  </div>
 
-    <div class="upload-box" id="uploadBox">
-      <div class="upload-inner">
-        <div class="icon">📷</div>
-        <p class="main-text" id="mainText">Select image to compress</p>
-        <p class="sub-text">or Drag & Drop here</p>
-        <button id="selectBtn">Select Image</button>
-        <input type="file" id="fileInput" accept="image/*" hidden />
-      </div>
-    </div>
+  <div class="tools">
 
-    <div class="controls">
-      <label>Target size (KB)</label>
-      <input type="number" id="targetKB" min="20" max="500" value="50" />
-      <button id="compressBtn">Compress Image</button>
-      <p class="hint">Enter between 20 KB and 500 KB</p>
-    </div>
+    <a class="tool" href="./compress.html">
+      <div class="badge">Most Used</div>
+      <h3>📉 Photo KB Compressor</h3>
+      <p>Reduce photo size to exact KB required by exam forms.</p>
+    </a>
 
-    <section id="preview" class="preview"></section>
-  </section>
+    <a class="tool" href="./resize.html">
+      <div class="badge">Popular</div>
+      <h3>📐 Photo Dimension Resizer</h3>
+      <p>Resize width & height as per exam instructions.</p>
+    </a>
 
-  <!-- SEO -->
-  <section class="seo-content">
-    <h2>Why Use Easy File Tools?</h2>
-    <ul>
-      <li>✔ Compress images to exact KB size</li>
-      <li>✔ Works for SSC, Railway, Banking, Police exams</li>
-      <li>✔ 100% Private (No upload to server)</li>
-      <li>✔ Mobile Friendly</li>
-      <li>✔ Free Forever</li>
-    </ul>
-  </section>
+    <a class="tool" href="./signature.html">
+      <h3>✍️ Signature Compressor</h3>
+      <p>Compress signature image without losing clarity.</p>
+    </a>
 
-  <!-- LINKS -->
-  <section class="links">
-    <h3>Important Pages</h3>
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="contact.html">Contact Us</a> |
-    <a href="sitemap.xml">Sitemap</a> |
-    <a href="robots.txt">Robots.txt</a>
-  </section>
-</main>
+    <a class="tool" href="./passport.html">
+      <h3>🪪 Passport Photo Maker</h3>
+      <p>Create passport size photo instantly.</p>
+    </a>
+
+  </div>
+
+</div>
 
 <footer>
-  <p>© 2026 EasyFileTools • Private • No upload to server</p>
+  © 2026 EasyFileTools – Built for Govt Exam Aspirants
 </footer>
 
-<script src="script-v4.js"></script>
 </body>
 </html>
