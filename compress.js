@@ -44,4 +44,4 @@ function compressImage(){
     img.src = e.target.result;
   };
   reader.readAsDataURL(fileInput.files[0]);
-              }
+}
