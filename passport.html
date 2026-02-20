@@ -2,83 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Passport Size Photo Maker (Govt Exam)</title>
+  <title>Passport Size Photo Maker for Govt Exams – Easy File Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Create passport size photo online for SSC, Railway & Govt exam forms. Resize to 3.5x4.5cm. 100% private." />
+  <meta name="description" content="Create passport size photos for SSC, Banking, Railway and Govt exam forms. Resize & compress online. No upload, 100% private." />
+  <link rel="canonical" href="https://princesahusahu91-source.github.io/easyfiletools/passport.html" />
+  <meta name="robots" content="index, follow">
+
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body { background: linear-gradient(135deg, #f4f7ff, #eef9f6); }
+    .tool-container { max-width: 920px; margin: 20px auto; background: #fff; border-radius: 18px; padding: 18px; box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+    .tool-header { text-align: center; margin-bottom: 14px; }
+    .tool-header h1 { font-size: 1.4rem; margin-bottom: 6px; }
+    .tool-header p { color: #64748b; font-size: 0.95rem; }
+    .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 14px 0; }
+    .benefit { background: #f1f5ff; border-radius: 12px; padding: 10px; font-size: 0.85rem; text-align: center; }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>Passport Size Photo Maker</h1>
-  <p class="tagline">Resize photo to passport size for govt exams</p>
+  <h1>Easy File Tools</h1>
+  <p class="tagline">Govt Exam Image & File Tools</p>
 </header>
 
-<main>
-  <section class="tool-card">
-    <h2>Upload Photo</h2>
+<main class="tool-container">
+  <div class="tool-header">
+    <h1>Passport Size Photo Maker</h1>
+    <p>Create passport size photos for exam forms</p>
+    <p style="text-align:center;color:#64748b;font-size:0.9rem;margin-top:6px;">
+      No signup • No upload • Works on mobile
+    </p>
+  </div>
 
-    <div class="upload-box" id="uploadBox">
-      <div class="upload-inner">
-        <div class="icon">🪪</div>
-        <p class="main-text" id="mainText">Select photo</p>
-        <p class="sub-text">or Drag & Drop here</p>
-        <button id="selectBtn">Select Photo</button>
-        <input type="file" id="fileInput" accept="image/*" hidden />
-      </div>
+  <!-- Your existing passport UI -->
+  <div class="upload-box" id="uploadBox">
+    <div class="upload-inner">
+      <div class="icon">🪪</div>
+      <p class="main-text">Select photo</p>
+      <button id="selectBtn">Select Photo</button>
+      <input type="file" id="fileInput" accept="image/*" hidden />
     </div>
+  </div>
 
-    <div class="controls">
-      <button id="compressBtn">Make Passport Size</button>
-      <p class="hint">Auto resize to 3.5 x 4.5 cm ratio</p>
+  <div class="controls">
+    <div class="row">
+      <label>Preset</label>
+      <select id="preset">
+        <option value="passport">Passport Size</option>
+        <option value="ssc">SSC Form</option>
+        <option value="railway">Railway Form</option>
+      </select>
+      <button id="makeBtn">Create Photo</button>
     </div>
+  </div>
 
-    <section id="preview" class="preview"></section>
-  </section>
+  <section id="preview" class="preview"></section>
 
-  <section class="links">
-    <a href="./">⬅ Back to Home</a>
+  <div class="benefits">
+    <div class="benefit">✔ Preset sizes</div>
+    <div class="benefit">✔ Mobile friendly</div>
+    <div class="benefit">✔ No upload</div>
+    <div class="benefit">✔ Free tool</div>
+  </div>
+
+  <section class="about">
+    <h2>About this Tool</h2>
+    <p>
+      Create passport size photos instantly for government exam applications.
+      This tool is useful for SSC, Banking, Railway and Police forms and works fully in your browser.
+    </p>
   </section>
 </main>
 
 <footer>
-  <p>© 2026 EasyFileTools</p>
+  <p>© 2026 EasyFileTools • Private • No upload to server</p>
+  <p>
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
 </footer>
 
-<script>
-const uploadBox = document.getElementById("uploadBox");
-const fileInput = document.getElementById("fileInput");
-const selectBtn = document.getElementById("selectBtn");
-const compressBtn = document.getElementById("compressBtn");
-const preview = document.getElementById("preview");
-
-let selectedFile = null;
-
-selectBtn.onclick = () => fileInput.click();
-fileInput.onchange = () => selectedFile = fileInput.files[0];
-
-compressBtn.onclick = () => {
-  if (!selectedFile) return alert("Select image first");
-  const img = new Image();
-  img.src = URL.createObjectURL(selectedFile);
-
-  img.onload = () => {
-    const canvas = document.createElement("canvas");
-    canvas.width = 413;
-    canvas.height = 531; // passport ratio
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-    const url = canvas.toDataURL("image/jpeg", 0.9);
-    preview.innerHTML = `
-      <img src="${url}">
-      <br><br>
-      <a href="${url}" download="passport-photo.jpg">
-        <button>Download</button>
-      </a>
-    `;
-  };
-};
-</script>
+<script src="script-v4.js"></script>
 </body>
 </html>
