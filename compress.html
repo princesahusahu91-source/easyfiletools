@@ -1,65 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Compress Photo to Exact KB</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Compress Image to Exact KB for Govt Exams – Easy File Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Compress images to exact KB size for SSC, Banking, Railway and Govt exam forms. No upload, 100% private, works on mobile." />
+  <link rel="canonical" href="https://princesahusahu91-source.github.io/easyfiletools/compress.html" />
+  <meta name="robots" content="index, follow">
 
-<style>
-body{
-  margin:0;
-  font-family:system-ui;
-  background:linear-gradient(135deg,#eef2ff,#ecfeff);
-  color:#0f172a;
-}
+  <link rel="stylesheet" href="style.css" />
 
-.wrap{
-  max-width:520px;
-  margin:30px auto;
-  background:#fff;
-  padding:24px;
-  border-radius:20px;
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-
-h1{margin-top:0;font-size:1.3rem;}
-
-input,button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:12px;
-  border:1px solid #e5e7eb;
-  font-size:0.95rem;
-}
-
-button{
-  background:#2563eb;
-  color:white;
-  border:none;
-  cursor:pointer;
-}
-
-button:hover{opacity:.9}
-
-#preview{
-  margin-top:12px;
-  max-width:100%;
-  border-radius:12px;
-}
-</style>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f4f7ff, #eef9f6);
+    }
+    .tool-container {
+      max-width: 920px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+    .tool-header {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .tool-header h1 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    .tool-header p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .benefit {
+      background: #f1f5ff;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="wrap">
-  <h1>📉 Compress Image to Exact KB</h1>
-  <input type="file" id="fileInput" accept="image/*">
-  <input type="number" id="targetKB" placeholder="Enter target KB (e.g. 50)">
-  <button onclick="compressImage()">Compress Now</button>
-  <img id="preview">
-  <a id="downloadLink" style="display:none;margin-top:12px;display:block;">Download Compressed Image</a>
-</div>
+<header>
+  <h1>Easy File Tools</h1>
+  <p class="tagline">Govt Exam Image & File Tools</p>
+</header>
 
-<script src="compress.js"></script>
+<main class="tool-container">
+
+  <div class="tool-header">
+    <h1>Compress Image to Exact KB for Govt Exams</h1>
+    <p>For SSC, Banking, Railway, Police & all Govt forms</p>
+    <p style="text-align:center;color:#64748b;font-size:0.9rem;margin-top:6px;">
+      No signup • No upload • Works on mobile
+    </p>
+  </div>
+
+  <!-- YOUR EXISTING TOOL UI -->
+  <div class="upload-box" id="uploadBox">
+    <div class="upload-inner">
+      <div class="icon">📷</div>
+      <p class="main-text" id="mainText">Select image to compress</p>
+      <p class="sub-text">or Drag & Drop here</p>
+      <button id="selectBtn">Select Image</button>
+      <input type="file" id="fileInput" accept="image/*" hidden />
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="row">
+      <label>Target size (KB)</label>
+      <input type="number" id="targetKB" min="20" max="500" value="50" />
+      <button id="compressBtn">Compress</button>
+    </div>
+    <p class="hint">Enter between 20 KB and 500 KB</p>
+  </div>
+
+  <section id="preview" class="preview"></section>
+
+  <div class="benefits">
+    <div class="benefit">✔ Exact KB output</div>
+    <div class="benefit">✔ Mobile friendly</div>
+    <div class="benefit">✔ No upload</div>
+    <div class="benefit">✔ Free tool</div>
+  </div>
+
+  <section class="about">
+    <h2>About this Tool</h2>
+    <p>
+      This free image compressor helps students resize photos to exact KB size for online exam forms.
+      It is useful for SSC, Banking, Railway, Police and State Government applications.
+      Your image never leaves your device, so it is 100% private and safe.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 EasyFileTools • Private • No upload to server</p>
+  <p>
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script src="script-v4.js"></script>
 </body>
 </html>
