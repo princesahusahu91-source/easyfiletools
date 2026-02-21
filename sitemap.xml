@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/</loc>
   </url>
+
+  <url>
+    <loc>https://princesahusahu91-source.github.io/easyfiletools/compress.html</loc>
+  </url>
+
+  <url>
+    <loc>https://princesahusahu91-source.github.io/easyfiletools/resize.html</loc>
+  </url>
+
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/signature.html</loc>
   </url>
+
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/passport.html</loc>
   </url>
+
+  <url>
+    <loc>https://princesahusahu91-source.github.io/easyfiletools/jpg-to-pdf.html</loc>
+  </url>
+
+  <url>
+    <loc>https://princesahusahu91-source.github.io/easyfiletools/govt-photo.html</loc>
+  </url>
+
+  <url>
+    <loc>https://princesahusahu91-source.github.io/easyfiletools/about.html</loc>
+  </url>
+
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/privacy.html</loc>
   </url>
+
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/contact.html</loc>
   </url>
+
 </urlset>
