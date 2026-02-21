@@ -2,78 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Easy File Tools – Resize, Compress & Convert Images for Govt Exams</title>
-  <meta name="description" content="Free online tools to resize, compress and convert images for SSC, Railway, Police & other government exam forms. No upload, works offline in your browser." />
+
+  <title>Easy File Tools – Govt Exam Image Compressor (20KB, 50KB, 100KB)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free government exam image compressor. Resize photo to exact 20KB, 50KB, 100KB, 200KB, 500KB. Passport size photo resize. No upload, 100% private." />
+  <meta name="keywords" content="govt exam image compressor, compress image to 20kb, 50kb photo resize, 100kb image, passport size photo online, ssc photo resize, railway exam photo size" />
+
+  <link rel="canonical" href="https://princesahusahu91-source.github.io/easyfiletools/" />
+
+  <meta name="google-site-verification" content="google761b348db6b26549.html" />
+
+  <meta property="og:title" content="Easy File Tools – Govt Exam Image Compressor" />
+  <meta property="og:description" content="Compress images to exact KB size for SSC, Railway & Govt exam forms. No upload. 100% private." />
+  <meta property="og:url" content="https://princesahusahu91-source.github.io/easyfiletools/" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header>
-  <h1>Easy File Tools</h1>
-  <p class="tagline">Resize, Compress & Convert Images for Govt Exam Forms</p>
+  <h1>Free Govt Exam Image Compressor & File Tools</h1>
+  <p class="tagline">Compress image to exact size (20KB – 500KB) for exam forms</p>
+  <p style="text-align:center;color:#64748b;font-size:0.9rem;margin-top:6px;">
+    No signup • No upload • Works on mobile
+  </p>
 </header>
 
 <main>
 
-  <!-- Tools Nav -->
-  <div class="links">
-    <a class="tool-btn" href="resize.html">Resize Photo</a>
-    <a class="tool-btn" href="signature.html">Resize Signature</a>
+  <!-- TOOLS NAV -->
+  <section class="links">
+    <a class="tool-btn" href="index.html">Image Compressor</a>
     <a class="tool-btn" href="passport.html">Passport Photo</a>
-    <!-- ✅ NEW: JPG to PDF -->
-    <a class="tool-btn" href="jpg-to-pdf.html">JPG to PDF</a>
-  </div>
+    <a class="tool-btn" href="signature.html">Signature Resize</a>
+    <a class="tool-btn" href="resize.html">Resize Image</a>
+  </section>
 
-  <!-- Tool Cards -->
-  <div class="tool-card">
-    <h2>Resize Photo for Forms</h2>
-    <p>Resize and compress your photo for SSC, Railway, Police & other exams.</p>
-    <a href="resize.html" class="tool-btn">Open Tool</a>
-  </div>
+  <!-- YOUR TOOL UI -->
+  <section class="tool-card">
+    <h2>Compress Image to Exact KB</h2>
+    <p>Select your photo and compress it to exact KB size for exam forms.</p>
 
-  <div class="tool-card">
-    <h2>Resize Signature</h2>
-    <p>Resize your signature image to exact KB & dimensions required in forms.</p>
-    <a href="signature.html" class="tool-btn">Open Tool</a>
-  </div>
+    <div class="upload-box" id="uploadBox">
+      <div class="upload-inner">
+        <div class="icon">📷</div>
+        <p class="main-text" id="mainText">Select image to compress</p>
+        <p class="sub-text">or Drag & Drop here</p>
+        <button id="selectBtn">Select Image</button>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </div>
+    </div>
 
-  <div class="tool-card">
-    <h2>Passport Size Photo</h2>
-    <p>Create passport size photos for government job forms instantly.</p>
-    <a href="passport.html" class="tool-btn">Open Tool</a>
-  </div>
+    <div class="controls">
+      <label>Target size (KB)</label>
+      <input type="number" id="targetKB" min="20" max="500" value="50" />
+      <button id="compressBtn">Compress</button>
+      <p class="hint">Enter between 20 KB and 500 KB</p>
+    </div>
 
-  <!-- ✅ NEW: JPG to PDF Card -->
-  <div class="tool-card">
-    <h2>JPG to PDF Converter</h2>
-    <p>Convert JPG images into PDF for government exam uploads.</p>
-    <a href="jpg-to-pdf.html" class="tool-btn">Open Tool</a>
-  </div>
+    <section id="preview" class="preview"></section>
+  </section>
 
-  <!-- SEO Content -->
-  <div class="seo-content">
-    <h2>Why Use Easy File Tools?</h2>
+  <!-- SEO CONTENT -->
+  <section class="seo-content">
+    <h2>Free Govt Exam Image Tools – EasyFileTools</h2>
+    <p>
+      EasyFileTools is a free online platform built for students and job aspirants who need to upload photos and documents for government exam forms.
+      Many forms require strict image sizes like 20KB, 50KB, 100KB, 200KB, or 500KB. Our tools help you resize and compress images to exact sizes
+      without losing quality and without uploading your files to any server.
+    </p>
+
+    <p>
+      Whether you are applying for SSC, Railway, Banking, Police, or State Government exams, our tools make the process fast and stress-free.
+      Everything works directly in your browser, so your files stay 100% private on your device.
+    </p>
+
+    <h3>Why Use EasyFileTools?</h3>
     <ul>
-      <li>100% Free & No Login Required</li>
-      <li>No file upload to server (privacy friendly)</li>
-      <li>Perfect for SSC, Railway, Police, Banking forms</li>
-      <li>Works on mobile & desktop</li>
+      <li>Exact KB size compression for exam forms</li>
+      <li>No signup or registration required</li>
+      <li>Works on mobile and desktop</li>
+      <li>Fast processing directly in your browser</li>
+      <li>100% privacy – no file upload to any server</li>
     </ul>
-  </div>
+
+    <h3>Popular Tools</h3>
+    <ul>
+      <li>Image Compressor for 20KB, 50KB, 100KB</li>
+      <li>Passport Size Photo Resizer</li>
+      <li>Signature Image Resizer</li>
+      <li>JPG to PDF Converter</li>
+    </ul>
+  </section>
 
 </main>
 
-<footer>
-  <p>© 2026 EasyFileTools • Private • No upload to server</p>
-  <p>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="terms.html">Terms of Service</a> |
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
-
+<p>
+  <a href="index.html">Home</a> |
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="terms.html">Terms of Service</a> |
+  <a href="contact.html">Contact</a>
+</p>
+<script src="script-v4.js"></script>
 </body>
 </html>
