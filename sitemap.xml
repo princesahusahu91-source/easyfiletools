@@ -3,42 +3,38 @@
 
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/</loc>
-  </url>
-
-  <url>
-    <loc>https://princesahusahu91-source.github.io/easyfiletools/compress.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/resize.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/signature.html</loc>
-  </url>
-
-  <url>
-    <loc>https://princesahusahu91-source.github.io/easyfiletools/passport.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/jpg-to-pdf.html</loc>
-  </url>
-
-  <url>
-    <loc>https://princesahusahu91-source.github.io/easyfiletools/govt-photo.html</loc>
-  </url>
-
-  <url>
-    <loc>https://princesahusahu91-source.github.io/easyfiletools/about.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://princesahusahu91-source.github.io/easyfiletools/terms.html</loc>
+    <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://princesahusahu91-source.github.io/easyfiletools/contact.html</loc>
+    <priority>0.4</priority>
   </url>
 
 </urlset>
