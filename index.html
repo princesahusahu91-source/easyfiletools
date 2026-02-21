@@ -2,21 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EasyFileTools – Govt Exam Image Tools</title>
+  <title>EasyFileTools – Govt Exam Image & PDF Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Compress and resize photos for Banking, SSC & Railway exams. No signup, no upload. Works on mobile." />
+  <meta name="description" content="Compress, resize photos, make passport size photos & convert JPG to PDF for Banking, SSC & Railway exams. No signup, no upload. Works on mobile." />
+  <link rel="canonical" href="https://princesahusahu91-source.github.io/easyfiletools/" />
+  <meta name="robots" content="index, follow">
 
   <style>
     :root {
-      --bg1:#f4f7ff;
-      --bg2:#eef9f6;
+      --bg1:#f2f6ff;
+      --bg2:#eefbf6;
       --card:#ffffff;
       --primary:#2563eb;
       --accent:#22c55e;
       --text:#0f172a;
       --muted:#64748b;
-      --radius:16px;
+      --radius:18px;
     }
+
+    *{box-sizing:border-box}
 
     body{
       margin:0;
@@ -26,18 +30,30 @@
     }
 
     header{
-      padding:22px;
-      text-align:center;
+      padding:18px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      max-width:1100px;
+      margin:auto;
     }
 
-    header h1{
-      margin:0;
-      font-size:1.9rem;
-      font-weight:800;
-      letter-spacing:-0.5px;
+    .brand{
+      font-weight:900;
+      font-size:1.3rem;
     }
 
-    header span{ color:var(--primary); }
+    .brand span{color:var(--primary)}
+
+    nav a{
+      margin-left:14px;
+      text-decoration:none;
+      font-weight:600;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    nav a:hover{color:var(--primary)}
 
     .container{
       max-width:1100px;
@@ -48,14 +64,15 @@
     .hero{
       background:var(--card);
       border-radius:22px;
-      padding:28px 20px;
+      padding:30px 20px;
       box-shadow:0 10px 30px rgba(0,0,0,0.06);
       text-align:center;
     }
 
-    .hero h2{
+    .hero h1{
       margin:0;
-      font-size:1.4rem;
+      font-size:1.6rem;
+      font-weight:900;
     }
 
     .hero p{
@@ -78,76 +95,85 @@
       text-decoration:none;
       color:inherit;
       box-shadow:0 8px 20px rgba(0,0,0,0.06);
-      transition:all 0.2s ease;
+      transition:.2s;
       border:1px solid #eef2ff;
     }
 
     .tool:hover{
-      transform:translateY(-6px);
+      transform:translateY(-5px);
       box-shadow:0 14px 32px rgba(0,0,0,0.12);
       border-color:#c7d2fe;
     }
 
     .tool h3{
-      margin:0 0 6px;
+      margin:6px 0;
       font-size:1.05rem;
-    }
-
-    .badge{
-      display:inline-block;
-      font-size:0.7rem;
-      padding:4px 8px;
-      background:#ecfeff;
-      color:#0369a1;
-      border-radius:999px;
-      margin-bottom:8px;
     }
 
     footer{
       text-align:center;
-      padding:22px;
+      padding:30px 14px;
       color:var(--muted);
       font-size:0.85rem;
       margin-top:40px;
+    }
+
+    footer a{
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:600;
+      margin:0 6px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1><span>Easy</span>FileTools</h1>
-  <p>Govt Exam Photo & Signature Tools</p>
+  <div class="brand"><span>Easy</span>FileTools</div>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <div class="container">
 
   <div class="hero">
-    <h2>Fast Tools for Banking, SSC & Railway Exams</h2>
+    <h1>Govt Exam Photo & PDF Tools</h1>
     <p>No signup • No upload • Works on mobile</p>
   </div>
 
   <div class="tools">
 
-    <a class="tool" href="./compress.html">
-      <div class="badge">Most Used</div>
+    <a class="tool" href="compress.html">
       <h3>📉 Photo KB Compressor</h3>
-      <p>Reduce photo size to exact KB required by exam forms.</p>
+      <p>Reduce image size to exact KB for forms.</p>
     </a>
 
-    <a class="tool" href="./resize.html">
-      <div class="badge">Popular</div>
+    <a class="tool" href="resize.html">
       <h3>📐 Photo Dimension Resizer</h3>
-      <p>Resize width & height as per exam instructions.</p>
+      <p>Set width & height as per exam instructions.</p>
     </a>
 
-    <a class="tool" href="./signature.html">
+    <a class="tool" href="signature.html">
       <h3>✍️ Signature Compressor</h3>
-      <p>Compress signature image without losing clarity.</p>
+      <p>Resize signature to 10–50 KB easily.</p>
     </a>
 
-    <a class="tool" href="./passport.html">
+    <a class="tool" href="passport.html">
       <h3>🪪 Passport Photo Maker</h3>
-      <p>Create passport size photo instantly.</p>
+      <p>Create passport size photos instantly.</p>
+    </a>
+
+    <a class="tool" href="jpg-to-pdf.html">
+      <h3>🖨 JPG to PDF Converter</h3>
+      <p>Convert images to PDF for form upload.</p>
+    </a>
+
+    <a class="tool" href="govt-photo.html">
+      <h3>📸 Govt Photo Resizer</h3>
+      <p>Compress govt exam photos to exact KB.</p>
     </a>
 
   </div>
@@ -155,7 +181,11 @@
 </div>
 
 <footer>
-  © 2026 EasyFileTools – Built for Govt Exam Aspirants
+  © 2026 EasyFileTools  
+  <br>
+  <a href="about.html">About</a> |
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="contact.html">Contact</a>
 </footer>
 
 </body>
